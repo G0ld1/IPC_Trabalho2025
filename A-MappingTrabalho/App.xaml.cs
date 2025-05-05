@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
@@ -58,9 +59,20 @@ namespace A_MappingTrabalho
                     .Build();
 
             await _host.StartAsync();
-
             var loginWindow = GetService<LoginWindow>();
-            loginWindow.Show();
+            var loginResult = loginWindow.ShowDialog();
+
+            if (loginResult == true)
+            {
+                // Login foi bem-sucedido, mostra a ShellWindow
+               
+            }
+            else
+            {
+                // Login falhou ou foi cancelado, fecha a aplicação
+                Shutdown();
+            }
+
         }
 
         private void ConfigureServices(HostBuilderContext context, IServiceCollection services)
@@ -88,6 +100,9 @@ namespace A_MappingTrabalho
 
             services.AddTransient<LoginWindow>();
             services.AddTransient<LoginViewModel>();
+
+            services.AddTransient<RegisterWindow>();
+            services.AddTransient<RegisterViewModel>();
 
             services.AddTransient<NavigationDrawerViewModel>();
             services.AddTransient<NavigationDrawerPage>();

@@ -68,8 +68,12 @@ namespace A_MappingTrabalho.Services
                 _navigationService.Initialize(_shellWindow.GetNavigationFrame());
                 _shellWindow.ShowWindow();
                 _navigationService.NavigateTo(typeof(MainViewModel).FullName);
-                await Task.CompletedTask;
+               
             }
+
+            
+
+            await Task.CompletedTask;
         }
     }
 }

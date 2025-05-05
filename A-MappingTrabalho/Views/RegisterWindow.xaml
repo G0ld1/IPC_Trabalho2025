@@ -5,51 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:A_MappingTrabalho.Views"
         mc:Ignorable="d"
-        Title="Criar Conta" Height="300" Width="400">
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        Title="Criar Conta" Height="450" Width="800">
+    <Frame x:Name="RegisterFrame" NavigationUIVisibility="Hidden" ></Frame>
 
-        <!-- Username -->
-        <Grid>
-            <TextBox x:Name="UsernameBox" Grid.Row="0" Margin="0 0 0 10"/>
-            <TextBlock Text="Username" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                Foreground="Gray" IsHitTestVisible="False" Margin="5,0,0,0" 
-                />
-        </Grid>
-
-        <!-- Email -->
-        <Grid Grid.Row="1">
-            <TextBox x:Name="EmailBox" Grid.Row="0" Margin="0 0 0 10"/>
-            <TextBlock Text="Email" VerticalAlignment="Center" HorizontalAlignment="Left" 
-               Foreground="Gray" IsHitTestVisible="False" Margin="5,0,0,0" 
-                />
-        </Grid>
-
-        <!-- Password -->
-        <Grid Grid.Row="2">
-            <PasswordBox x:Name="PasswordBox" Margin="0 0 0 10"/>
-            <TextBlock Text="Password" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                       Foreground="Gray" IsHitTestVisible="False" Margin="5,0,0,0" 
-                        />
-        </Grid>
-
-        <!-- Confirm Password -->
-        <Grid Grid.Row="3">
-            <PasswordBox x:Name="ConfirmBox" Margin="0 0 0 10"/>
-            <TextBlock Text="Confirm Password" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                       Foreground="Gray" IsHitTestVisible="False" Margin="5,0,0,0" 
-                        />
-        </Grid>
-
-        <!-- Register Button -->
-        <Button Grid.Row="4" Content="Registar" Click="Register_Click" Width="100" HorizontalAlignment="Left" Margin="0 10 0 0"/>
-        <TextBlock x:Name="ErrorMessage" Grid.Row="4" Foreground="Red"/>
-    </Grid>
 </Window>

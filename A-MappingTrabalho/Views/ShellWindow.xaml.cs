@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Media;
-
+using A_MappingTrabalho.Contracts.Services;
 using A_MappingTrabalho.Contracts.Views;
 using A_MappingTrabalho.ViewModels;
 
@@ -46,6 +46,8 @@ namespace A_MappingTrabalho.Views
             {
                 _ShellViewModel.UpdateFillColor(new SolidColorBrush(Colors.Black));
             }
+
+         
         }
 
         public Frame GetNavigationFrame()

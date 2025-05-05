@@ -1,0 +1,57 @@
+﻿<Page x:Class="A_MappingTrabalho.Views.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:A_MappingTrabalho.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="400"
+      Title="Criar Conta">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Username -->
+        <Grid>
+            <TextBox x:Name="UsernameBox" Grid.Row="0" Margin="0 0 0 10"/>
+            <TextBlock Text="Username" VerticalAlignment="Top" HorizontalAlignment="Left" 
+              Foreground="Gray" IsHitTestVisible="False" Margin="5,0,0,0" 
+              />
+        </Grid>
+
+        <!-- Email -->
+        <Grid Grid.Row="1">
+            <TextBox x:Name="EmailBox" Grid.Row="0" Margin="0 0 0 10"/>
+            <TextBlock Text="Email" VerticalAlignment="Top" HorizontalAlignment="Left" 
+             Foreground="Gray" IsHitTestVisible="False" Margin="5,0,0,0" 
+              />
+        </Grid>
+
+        <!-- Password -->
+        <Grid Grid.Row="2">
+            <PasswordBox x:Name="PasswordBox" Margin="0 0 0 10"/>
+            <TextBlock Text="Password" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                     Foreground="Gray" IsHitTestVisible="False" Margin="5,0,0,0" 
+                      />
+        </Grid>
+
+        <!-- Confirm Password -->
+        <Grid Grid.Row="3">
+            <PasswordBox x:Name="ConfirmBox" Margin="0 0 0 10"/>
+            <TextBlock Text="Confirm Password" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                     Foreground="Gray" IsHitTestVisible="False" Margin="5,1,0,0" 
+                      />
+        </Grid>
+
+        <!-- Register Button -->
+        <Button Grid.Row="4" Content="Registar" Command="{Binding RegisterCommand}" Width="100" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+        <TextBlock x:Name="ErrorMessage" Grid.Row="4" Foreground="Red"/>
+    </Grid>
+</Page>

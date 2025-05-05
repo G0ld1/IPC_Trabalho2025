@@ -1,5 +1,4 @@
-﻿using A_MappingTrabalho.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace A_MappingTrabalho.Views
 {
     /// <summary>
-    /// Interaction logic for RegisterWindow.xaml
+    /// Interaction logic for RegisterPage.xaml
     /// </summary>
-    public partial class RegisterWindow : Window
+    public partial class RegisterPage : Page
     {
-        public RegisterWindow(RegisterViewModel viewModel)
+        public RegisterPage()
         {
             InitializeComponent();
-            var registerPage = new RegisterPage { DataContext = viewModel };
-            RegisterFrame.Navigate(registerPage);
         }
-
-       
-
-
     }
 }

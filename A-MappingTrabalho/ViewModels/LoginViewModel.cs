@@ -32,16 +32,23 @@ namespace A_MappingTrabalho.ViewModels
             // Aqui deverias validar credenciais...
 
             // Se estiver tudo ok, abrir a ShellWindow:
-            var shell = AppServices.GetService<IShellWindow>();
-            shell.ShowWindow();
+            var loginWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is LoginWindow);
 
-            // Fechar a janela de login
-            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is LoginWindow)?.Close();
+            // Fechar a janela de login com resultado positivo
+            if (loginWindow != null)
+            {
+                loginWindow.DialogResult = true;  // <-- Isto faz ShowDialog() retornar true
+                //loginWindow.Close();
+            }
         }
 
         private void OnNavigateToRegister()
         {
-            //_navigationService.NavigateTo(typeof(RegisterViewModel).FullName);
+            var registerWindow = App.Current is App app ? app.GetService<RegisterWindow>() : null;
+            registerWindow?.Show();
+
+            
+            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is LoginWindow)?.Close();
         }
     }
 }
