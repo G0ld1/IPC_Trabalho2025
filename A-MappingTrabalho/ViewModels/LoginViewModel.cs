@@ -29,17 +29,16 @@ namespace A_MappingTrabalho.ViewModels
 
         private void OnLogin()
         {
-            // Aqui deverias validar credenciais...
-
-            // Se estiver tudo ok, abrir a ShellWindow:
-            var loginWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is LoginWindow);
-
-            // Fechar a janela de login com resultado positivo
-            if (loginWindow != null)
+            var window = Application.Current.Windows
+                    .OfType<Window>()
+                    .FirstOrDefault(w => w is LoginWindow);
+            if (window != null)
             {
-                loginWindow.DialogResult = true;  // <-- Isto faz ShowDialog() retornar true
-                //loginWindow.Close();
+                window.DialogResult = true;
             }
+
+
+
         }
 
         private void OnNavigateToRegister()

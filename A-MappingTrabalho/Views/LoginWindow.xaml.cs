@@ -18,13 +18,15 @@ namespace A_MappingTrabalho.Views
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginWindow : Window 
     {
         public LoginWindow(LoginViewModel viewModel)
         {
             InitializeComponent();
-            var loginPage = new LoginPage { DataContext = viewModel };
-            LoginFrame.Navigate(loginPage);
+           
+            var loginPage = new LoginPage();
+            loginPage.DataContext = viewModel;
+            LoginFrame.Navigate(new LoginPage());
         }
     }
 }

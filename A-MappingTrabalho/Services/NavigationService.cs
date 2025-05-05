@@ -84,7 +84,7 @@ namespace A_MappingTrabalho.Services
                     navigationAware.OnNavigatedTo(e.ExtraData);
                 }
 
-                Navigated?.Invoke(sender, dataContext.GetType().FullName);
+                Navigated?.Invoke(sender,dataContext.GetType().FullName);
             }
         }
     }

@@ -19,6 +19,7 @@ namespace A_MappingTrabalho.Services
         {
             _serviceProvider = serviceProvider;
             Configure<MainViewModel, MainPage>();
+            Configure<LoginViewModel, LoginPage>();
             Configure<NavigationDrawerViewModel, NavigationDrawerPage>();
         }
 

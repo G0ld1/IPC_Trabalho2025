@@ -7,7 +7,7 @@ using A_MappingTrabalho.Contracts.Services;
 using A_MappingTrabalho.Contracts.Views;
 using A_MappingTrabalho.Models;
 using A_MappingTrabalho.ViewModels;
-
+using A_MappingTrabalho.Views;
 using Microsoft.Extensions.Hosting;
 
 namespace A_MappingTrabalho.Services
@@ -67,7 +67,7 @@ namespace A_MappingTrabalho.Services
                 _shellWindow = _serviceProvider.GetService(typeof(IShellWindow)) as IShellWindow;
                 _navigationService.Initialize(_shellWindow.GetNavigationFrame());
                 _shellWindow.ShowWindow();
-                _navigationService.NavigateTo(typeof(MainViewModel).FullName);
+                _navigationService.NavigateTo(typeof(LoginViewModel).FullName);
                
             }
 

@@ -41,8 +41,8 @@ namespace A_MappingTrabalho
 
         public App()
         {
-			// Add your Syncfusion license key for WPF platform with corresponding Syncfusion NuGet version referred in project. For more information about license key see https://help.syncfusion.com/common/essential-studio/licensing/license-key.
-			// Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Add your license key here"); 
+            // Add your Syncfusion license key for WPF platform with corresponding Syncfusion NuGet version referred in project. For more information about license key see https://help.syncfusion.com/common/essential-studio/licensing/license-key.
+            // Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Add your license key here"); 
         }
 
         private async void OnStartup(object sender, StartupEventArgs e)
@@ -59,19 +59,26 @@ namespace A_MappingTrabalho
                     .Build();
 
             await _host.StartAsync();
-            var loginWindow = GetService<LoginWindow>();
+
+            var loginWindow = GetService<LoginWindow>(); // Usa DI
             var loginResult = loginWindow.ShowDialog();
 
             if (loginResult == true)
             {
-                // Login foi bem-sucedido, mostra a ShellWindow
-               
+                // Só arranca a ShellWindow se login for bem-sucedido
+                var shellWindow = GetService<ShellWindow>();
+                var navService = GetService<INavigationService>();
+                navService.Initialize(shellWindow.GetNavigationFrame());
+
+                shellWindow.Show();
+                navService.NavigateTo(typeof(MainViewModel).FullName);
             }
             else
             {
-                // Login falhou ou foi cancelado, fecha a aplicação
-                Shutdown();
+                // Login cancelado/errado, fecha app
+                Application.Current.Shutdown();
             }
+
 
         }
 
@@ -100,6 +107,7 @@ namespace A_MappingTrabalho
 
             services.AddTransient<LoginWindow>();
             services.AddTransient<LoginViewModel>();
+         
 
             services.AddTransient<RegisterWindow>();
             services.AddTransient<RegisterViewModel>();

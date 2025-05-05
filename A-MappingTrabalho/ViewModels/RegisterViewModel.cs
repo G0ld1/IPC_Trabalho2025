@@ -79,7 +79,7 @@ namespace A_MappingTrabalho.ViewModels
         private void OnBackToLogin()
         {
             var loginWindow = App.Current is App app ? app.GetService<LoginWindow>() : null;
-            loginWindow?.Show();
+          
 
             // Fecha a janela de registo
             Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is RegisterWindow)?.Close();
