@@ -78,7 +78,7 @@ namespace A_MappingTrabalho.ViewModels
 
         private void OnBackToLogin()
         {
-            var loginWindow = App.Current is App app ? app.GetService<LoginWindow>() : null;
+            var loginWindow = App.Current is App app ? app.GetService<LoginPage>() : null;
           
 
             // Fecha a janela de registo

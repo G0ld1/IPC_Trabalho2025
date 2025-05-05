@@ -29,15 +29,7 @@ namespace A_MappingTrabalho.ViewModels
 
         private void OnLogin()
         {
-            var window = Application.Current.Windows
-                    .OfType<Window>()
-                    .FirstOrDefault(w => w is LoginWindow);
-            if (window != null)
-            {
-                window.DialogResult = true;
-            }
-
-
+            //COlocar aqui logica de login e afins
 
         }
 
@@ -47,7 +39,7 @@ namespace A_MappingTrabalho.ViewModels
             registerWindow?.Show();
 
             
-            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is LoginWindow)?.Close();
+            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is LoginPage)?.Close();
         }
     }
 }

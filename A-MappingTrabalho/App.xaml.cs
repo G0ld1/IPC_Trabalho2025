@@ -60,24 +60,7 @@ namespace A_MappingTrabalho
 
             await _host.StartAsync();
 
-            var loginWindow = GetService<LoginWindow>(); // Usa DI
-            var loginResult = loginWindow.ShowDialog();
-
-            if (loginResult == true)
-            {
-                // Só arranca a ShellWindow se login for bem-sucedido
-                var shellWindow = GetService<ShellWindow>();
-                var navService = GetService<INavigationService>();
-                navService.Initialize(shellWindow.GetNavigationFrame());
-
-                shellWindow.Show();
-                navService.NavigateTo(typeof(MainViewModel).FullName);
-            }
-            else
-            {
-                // Login cancelado/errado, fecha app
-                Application.Current.Shutdown();
-            }
+           
 
 
         }
@@ -105,9 +88,9 @@ namespace A_MappingTrabalho
             services.AddTransient<MainViewModel>();
             services.AddTransient<MainPage>();
 
-            services.AddTransient<LoginWindow>();
+           
             services.AddTransient<LoginViewModel>();
-         
+            services.AddTransient<LoginPage>();
 
             services.AddTransient<RegisterWindow>();
             services.AddTransient<RegisterViewModel>();

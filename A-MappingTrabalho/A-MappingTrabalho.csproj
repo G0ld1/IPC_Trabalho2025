@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Outfit-Bold.ttf" />
+    <None Remove="Fonts\Outfit-Medium.ttf" />
+    <None Remove="Fonts\Outfit-Regular.ttf" />
+    <None Remove="Fonts\Outfit-SemiBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -48,5 +55,12 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Outfit-Bold.ttf" />
+    <Resource Include="Fonts\Outfit-Medium.ttf" />
+    <Resource Include="Fonts\Outfit-Regular.ttf" />
+    <Resource Include="Fonts\Outfit-SemiBold.ttf" />
   </ItemGroup>
 </Project>

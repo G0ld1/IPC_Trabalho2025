@@ -36,15 +36,45 @@
             </Button>
         </local:MyObservableCollection>
     </syncfusion:ChromelessWindow.LeftHeaderItemsSource>
-    
+
     <syncfusion:ChromelessWindow.Content>
-        <syncfusion:SfNavigationDrawer x:Name="navigationDrawer" ItemsSource="{Binding MenuItems}" DisplayMemberPath="Label" DisplayMode="Expanded" IconMemberPath="Path" SelectedItem="{Binding SelectedMenuItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <syncfusion:SfNavigationDrawer x:Name="navigationDrawer" ExpandedModeThresholdWidth="256" ItemsSource="{Binding MenuItems}" DisplayMemberPath="Label" DisplayMode="Expanded" IconMemberPath="Path" SelectedItem="{Binding SelectedMenuItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontFamily="pack://application:,,,/Fonts/#Outfit" DrawerBackground="#FF432A2A">
             <syncfusion:SfNavigationDrawer.ContentView>
                 <Frame
                     x:Name="shellFrame"
                     NavigationUIVisibility="Hidden"
-                    Focusable="False" />
+                    Focusable="False" Margin="0,0,1,0" />
+
+
+
             </syncfusion:SfNavigationDrawer.ContentView>
+
+            <syncfusion:SfNavigationDrawer.ToggleButtonContentTemplate>
+                <DataTemplate>
+
+                    <Label
+                     Margin="0,20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="User"
+                        Foreground="White"/>
+                </DataTemplate>
+            </syncfusion:SfNavigationDrawer.ToggleButtonContentTemplate>
+
+            <syncfusion:SfNavigationDrawer.ToggleButtonIconTemplate>
+                <DataTemplate>
+                    <Label
+                        Foreground="White"
+                    Content="U"
+                        Margin="2,5,0,0"
+                    Width="59"
+                    Height="59"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" FontSize="32"
+                     />
+                </DataTemplate>
+            </syncfusion:SfNavigationDrawer.ToggleButtonIconTemplate>
+
         </syncfusion:SfNavigationDrawer>
     </syncfusion:ChromelessWindow.Content>
 </syncfusion:ChromelessWindow>
