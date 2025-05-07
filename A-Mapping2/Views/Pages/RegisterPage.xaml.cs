@@ -26,5 +26,14 @@ namespace A_Mapping2.Views.Pages
             InitializeComponent();
             DataContext = new RegisterViewModel(navigationFrame);
         }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as RegisterViewModel;
+            if (vm?.RegisterCommand.CanExecute(null) == true)
+            {
+                vm.RegisterCommand.Execute(new[] { PasswordBox, ConfirmPasswordBox });
+            }
+        }
     }
 }

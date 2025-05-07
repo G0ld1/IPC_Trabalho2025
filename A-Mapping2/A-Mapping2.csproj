@@ -10,7 +10,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <None Remove="Assets\Fonts\Outfit-Black.ttf" />
+    <None Remove="Assets\Fonts\Outfit-ExtraBold.ttf" />
+    <None Remove="Assets\Fonts\Outfit-ExtraLight.ttf" />
+    <None Remove="Assets\Fonts\Outfit-Light.ttf" />
+    <None Remove="Assets\Fonts\Outfit-Thin.ttf" />
+    <None Remove="Assets\Images\Register Page.png" />
+    <None Remove="Views\Register Page.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\Outfit-Black.ttf" />
+    <Resource Include="Assets\Fonts\Outfit-ExtraBold.ttf" />
+    <Resource Include="Assets\Fonts\Outfit-ExtraLight.ttf" />
+    <Resource Include="Assets\Fonts\Outfit-Light.ttf" />
+    <Resource Include="Assets\Fonts\Outfit-Thin.ttf" />
+    <Resource Include="Assets\Images\Register Page.png" />
+    <Resource Include="Views\Register Page.png" />
   </ItemGroup>
 
 </Project>

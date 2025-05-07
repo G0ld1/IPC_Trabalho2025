@@ -14,6 +14,13 @@ namespace A_Mapping2.ViewModels
     class RegisterViewModel : BaseViewModel
     {
         public string Username { get; set; }
+        public string Email { get; set; }
+        private string _password;
+        public string Password
+        {
+            get => _password;
+            set => SetProperty(ref _password, value);
+        }
 
         public ICommand RegisterCommand { get; }
         public ICommand BackToLoginCommand { get; }
@@ -29,11 +36,21 @@ namespace A_Mapping2.ViewModels
 
         private void Register(object param)
         {
-            if (param is PasswordBox passwordBox)
+            if (param is object[] passwordBoxes &&
+                passwordBoxes[0] is PasswordBox passwordBox &&
+                passwordBoxes[1] is PasswordBox confirmBox)
             {
-                var password = passwordBox.Password;
-                // Aqui podias guardar o novo user ou simular criação
+                string password = passwordBox.Password;
+                string confirmPassword = confirmBox.Password;
 
+                if (string.IsNullOrWhiteSpace(password) || password != confirmPassword)
+                {
+                    MessageBox.Show("As palavras-passe não coincidem.");
+                    return;
+                }
+
+
+                // Aqui podias guardar o novo utilizador (simulado)
                 MessageBox.Show("Utilizador registado com sucesso!");
                 _navigationFrame.Navigate(new LoginPage(_navigationFrame));
             }
