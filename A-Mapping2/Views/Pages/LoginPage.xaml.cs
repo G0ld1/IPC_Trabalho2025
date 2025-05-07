@@ -34,5 +34,22 @@ namespace A_Mapping2.Views.Pages
                 vm.Password = ((PasswordBox)sender).Password;
             }
         }
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                AttemptLogin();
+            }
+        }
+        private void AttemptLogin()
+        {
+            if (this.DataContext is LoginViewModel vm)
+            {
+                if (vm.LoginCommand.CanExecute(null))
+                {
+                    vm.LoginCommand.Execute(null);
+                }
+            }
+        }
     }
 }

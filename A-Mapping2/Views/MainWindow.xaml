@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:A_Mapping2"
         mc:Ignorable="d"
-        Title="A-Mapping" Height="450" Width="800">
+        Title="A-Mapping" Height="1080" Width="1920"
+         WindowState="Maximized">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>

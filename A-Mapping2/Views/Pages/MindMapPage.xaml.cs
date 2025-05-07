@@ -30,5 +30,16 @@ namespace A_Mapping2.Views.Pages
             var image = new BitmapImage(new System.Uri(mapa.ImagemPath, System.UriKind.Relative));
             MapImage.Source = image;
         }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("No previous page in the navigation stack.");
+            }
+        }
     }
 }

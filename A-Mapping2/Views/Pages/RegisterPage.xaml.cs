@@ -21,10 +21,39 @@ namespace A_Mapping2.Views.Pages
     /// </summary>
     public partial class RegisterPage : Page
     {
+        private readonly Frame _navigationFrame;
         public RegisterPage(Frame navigationFrame)
         {
             InitializeComponent();
+            _navigationFrame = navigationFrame;
             DataContext = new RegisterViewModel(navigationFrame);
+        }
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+            string confirmPassword = ConfirmPasswordBox.Password;
+
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
+            {
+                MessageBox.Show("All fields are required.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (password != confirmPassword)
+            {
+                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // TODO: Add logic to handle registration (e.g., save to database, call API, etc.)
+            MessageBox.Show("Registration successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            if (this.NavigationService != null)
+            {
+                this.NavigationService.Navigate(new LoginPage(_navigationFrame));
+            }
         }
     }
 }
