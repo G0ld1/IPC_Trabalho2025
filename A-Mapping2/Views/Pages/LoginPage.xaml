@@ -19,7 +19,7 @@
 
         <!-- Cabeçalho -->
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,30,0,20">
-            <TextBlock Text="Iniciar Sessão" 
+            <TextBlock Text="{DynamicResource LoginLabel}" 
                     FontFamily="Outfit" 
                     FontWeight="SemiBold" 
                     FontSize="48" 
@@ -36,15 +36,25 @@
 
         <!-- Formulário -->
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="449" MaxWidth="600" Margin="0,20,0,0">
-            <TextBlock Text="Nome de Utilizador/Email" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
-            <TextBox Text="{Binding Username}" Height="50" FontSize="16" Margin="0,0,0,20" 
+            <TextBlock Text="{DynamicResource UsernameLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <TextBox x:Name="UsernameTextBox"  Text="{Binding Username}" Height="50" FontSize="16" Margin="0,0,0,20" 
                   Background="#936D4137" BorderThickness="0" Padding="10"/>
 
-            <TextBlock Text="Palavra-Passe" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <TextBlock Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
             <PasswordBox x:Name="PasswordBox" Height="50" Margin="0,0,0,20" PasswordChanged="PasswordBox_PasswordChanged"
                       Background="#586D4137" BorderThickness="0" Padding="10"/>
+            <TextBox Name="PasswordUnmask" Visibility="Hidden" Margin="0,10" Height="40" 
+                        FontSize="16" 
+                        VerticalContentAlignment="Center" 
+                        HorizontalContentAlignment="Center" />
 
-            <Button Content="Login"
+            <TextBlock x:Name="ShowPassword" Text="👁" 
+                       FontSize="16"
+                       HorizontalAlignment="Right"
+                       PreviewMouseDown="ShowPassword_PreviewMouseDown"
+                       />
+
+            <Button Content="{DynamicResource LoginButton}"
                  Command="{Binding LoginCommand}"
                  Width="200" Height="50"
                  FontSize="20"
@@ -73,39 +83,6 @@
                     </Style>
                 </Button.Style>
             </Button>
-    <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
-            <TextBlock Text="{DynamicResource LoginLabel}" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" />
-
-            <TextBlock Text="{DynamicResource UsernameLabel}" FontSize="12" Foreground="Gray" Margin="0,0,0,5" />
-            <TextBox Text="{Binding Username}" Margin="0,10" Height="40" 
-                                                            FontSize="16" 
-                                                            VerticalContentAlignment="Center" 
-                                                            HorizontalContentAlignment="Center"/>
-
-            <TextBlock Text="{DynamicResource PasswordLabel}" FontSize="12" Foreground="Gray" Margin="0,0,0,5" />
-            <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" Margin="0,10" Height="40" 
-                         FontSize="16" 
-                         VerticalContentAlignment="Center" 
-                         HorizontalContentAlignment="Center"
-                         />
-            <TextBox Name="PasswordUnmask" Visibility="Hidden" Margin="0,10" Height="40" 
-                        FontSize="16" 
-                        VerticalContentAlignment="Center" 
-                        HorizontalContentAlignment="Center" />
-
-            <TextBlock x:Name="ShowPassword" Text="👁" 
-                       FontSize="16"
-                       HorizontalAlignment="Right"
-                       PreviewMouseDown="ShowPassword_PreviewMouseDown"
-                       />
-
-            <Button Content="{DynamicResource LoginButton}"
-            Command="{Binding LoginCommand}"
-            CommandParameter="{Binding ElementName=PasswordBox, Path=Password}"
-            Width="150" Height="30"
-            HorizontalAlignment="Right"
-            Margin="0,10,0,0" />
 
             <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" MouseDown="NavigateToRegisterPage">
                 <Run Text="{DynamicResource RegisterText}" TextDecorations="Underline" Foreground="Blue" />
