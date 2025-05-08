@@ -12,7 +12,27 @@
             <TextBlock x:Name="MapTitle" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
             <Image x:Name="MapImage" Width="500" Height="300" Stretch="Uniform"/>
         </StackPanel>
-        <Button Content="Back" Click="BackButton_Click" Width="100" Height="50"/>
+        <Button Content="Back" Click="BackButton_Click" Width="100" Height="50" Foreground="White">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="#586D4137"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                                         BorderBrush="{TemplateBinding BorderBrush}"
+                                         BorderThickness="{TemplateBinding BorderThickness}"
+                                         CornerRadius="20">     
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
 
     </Grid>
 </Page>

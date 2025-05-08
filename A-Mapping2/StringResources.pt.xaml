@@ -6,9 +6,14 @@
 	<sys:String x:Key="PassConfirmationLabel">Confirma a Palavra-Passe</sys:String>
 	<sys:String x:Key="LoginButton">Entrar</sys:String>
 	<sys:String x:Key="RegisterButton">Efetuar Registo</sys:String>
-	<sys:String x:Key="BackToLoginText">Ja tenho conta!!</sys:String>
+	<sys:String x:Key="BackToLoginText">Ja tenho conta!</sys:String>
 	<sys:String x:Key="RegisterText">Não tenho conta!!</sys:String>
 	<sys:String x:Key="RegisterLabel">Registo</sys:String>
 	<sys:String x:Key="LoginLabel">Login</sys:String>
-
+    <sys:String x:Key="EmailLabel">E-Mail</sys:String>
+    <sys:String x:Key="LoginTip">Faca Login para Continuar</sys:String>
+    <sys:String x:Key="Greeting">Bem Vindo/a</sys:String>
+    <sys:String x:Key="GreetingTip">Crie a sua Conta para Comecar</sys:String>
+    <sys:String x:Key="LangBut">Portugues</sys:String>
+   
 </ResourceDictionary>
