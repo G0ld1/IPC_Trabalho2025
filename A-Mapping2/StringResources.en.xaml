@@ -6,8 +6,8 @@
 	<sys:String x:Key="PassConfirmationLabel">Confirm Password</sys:String>
     <sys:String x:Key="LoginButton">Login</sys:String>
     <sys:String x:Key="RegisterButton">Register</sys:String>
-	<sys:String x:Key="BackToLoginText">Already have an account</sys:String>
-	<sys:String x:Key="RegisterText">I dont have an account</sys:String>
+	<sys:String x:Key="BackToLoginText">Already have an account!!</sys:String>
+	<sys:String x:Key="RegisterText">I dont have an account!!</sys:String>
 	<sys:String x:Key="RegisterLabel">Registration</sys:String>
 	<sys:String x:Key="LoginLabel">Login</sys:String>
 </ResourceDictionary>

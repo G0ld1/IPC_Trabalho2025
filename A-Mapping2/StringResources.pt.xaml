@@ -6,8 +6,8 @@
 	<sys:String x:Key="PassConfirmationLabel">Confirma a Palavra-Passe</sys:String>
 	<sys:String x:Key="LoginButton">Entrar</sys:String>
 	<sys:String x:Key="RegisterButton">Efetuar Registo</sys:String>
-	<sys:String x:Key="BackToLoginText">Ja tenho conta</sys:String>
-	<sys:String x:Key="RegisterText">Não tenho conta</sys:String>
+	<sys:String x:Key="BackToLoginText">Ja tenho conta!!</sys:String>
+	<sys:String x:Key="RegisterText">Não tenho conta!!</sys:String>
 	<sys:String x:Key="RegisterLabel">Registo</sys:String>
 	<sys:String x:Key="LoginLabel">Login</sys:String>
 
