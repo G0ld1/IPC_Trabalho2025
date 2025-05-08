@@ -4,21 +4,51 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:A_Mapping2.Views.Pages"
+      xmlns:controls="clr-namespace:A_Mapping2.Views.Controls"
+      
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage"
       KeyDown="Page_KeyDown">
 
     <Grid>
-        
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
-            <TextBox  Text="{Binding Username}" Margin="0,10"/>
-            <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" Margin="0,10"/>
-            <Button Content="Login"
-                    Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding ElementName=PasswordBox, Path=Password}"
-                    Margin="0,0,0,10"/>
-            <Button Content="Registar" Command="{Binding NavigateToRegisterCommand}" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+            <TextBlock Text="{DynamicResource LoginLabel}" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" />
+
+            <TextBlock Text="{DynamicResource UsernameLabel}" FontSize="12" Foreground="Gray" Margin="0,0,0,5" />
+            <TextBox Text="{Binding Username}" Margin="0,10" Height="40" 
+                                                            FontSize="16" 
+                                                            VerticalContentAlignment="Center" 
+                                                            HorizontalContentAlignment="Center"/>
+
+            <TextBlock Text="{DynamicResource PasswordLabel}" FontSize="12" Foreground="Gray" Margin="0,0,0,5" />
+            <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" Margin="0,10" Height="40" 
+                         FontSize="16" 
+                         VerticalContentAlignment="Center" 
+                         HorizontalContentAlignment="Center"
+                         />
+            <TextBox Name="PasswordUnmask" Visibility="Hidden" Margin="0,10" Height="40" 
+                        FontSize="16" 
+                        VerticalContentAlignment="Center" 
+                        HorizontalContentAlignment="Center" />
+
+            <TextBlock x:Name="ShowPassword" Text="👁" 
+                       FontSize="16"
+                       HorizontalAlignment="Right"
+                       PreviewMouseDown="ShowPassword_PreviewMouseDown"
+                       />
+
+            <Button Content="{DynamicResource LoginButton}"
+            Command="{Binding LoginCommand}"
+            CommandParameter="{Binding ElementName=PasswordBox, Path=Password}"
+            Width="150" Height="30"
+            HorizontalAlignment="Right"
+            Margin="0,10,0,0" />
+
+            <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" MouseDown="NavigateToRegisterPage">
+                <Run Text="{DynamicResource RegisterText}" TextDecorations="Underline" Foreground="Blue" />
+            </TextBlock>
+            <controls:LanguageSelector />
         </StackPanel>
     </Grid>
 </Page>

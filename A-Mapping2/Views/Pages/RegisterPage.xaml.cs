@@ -55,5 +55,12 @@ namespace A_Mapping2.Views.Pages
                 this.NavigationService.Navigate(new LoginPage(_navigationFrame));
             }
         }
+        private void NavigateToLoginPage(object sender, MouseButtonEventArgs e)
+        {
+            if (this.NavigationService != null)
+            {
+                this.NavigationService.Navigate(new LoginPage(_navigationFrame));
+            }
+        }
     }
 }
