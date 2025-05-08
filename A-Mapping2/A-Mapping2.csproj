@@ -15,7 +15,6 @@
     <None Remove="Assets\Fonts\Outfit-ExtraLight.ttf" />
     <None Remove="Assets\Fonts\Outfit-Light.ttf" />
     <None Remove="Assets\Fonts\Outfit-Thin.ttf" />
-    <None Remove="Assets\Images\Register Page.png" />
     <None Remove="Views\Register Page.png" />
   </ItemGroup>
 
@@ -25,7 +24,7 @@
     <Resource Include="Assets\Fonts\Outfit-ExtraLight.ttf" />
     <Resource Include="Assets\Fonts\Outfit-Light.ttf" />
     <Resource Include="Assets\Fonts\Outfit-Thin.ttf" />
-    <Resource Include="Assets\Images\Register Page.png" />
+    <Resource Include="Assets\Images\Register_Page.png" />
     <Resource Include="Views\Register Page.png" />
   </ItemGroup>
 

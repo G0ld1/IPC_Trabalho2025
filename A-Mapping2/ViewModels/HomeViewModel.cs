@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using A_Mapping2.Helpers;
 using A_Mapping2.Models;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace A_Mapping2.ViewModels
 {
@@ -15,15 +17,22 @@ namespace A_Mapping2.ViewModels
 
         public string Username { get; }
         public ObservableCollection<MapaMental> MindMaps { get; } = new();
+        public ICollectionView GroupedMindMaps { get; }
 
         public ICommand CreateMindMapCommand { get; }
 
         public HomeViewModel(string username)
         {
             Username = username;
-            MindMaps.Add(new MapaMental { Titulo = "Mapa: Estudos", ImagemPath = "/Assets/mapa1.png" });
-            MindMaps.Add(new MapaMental { Titulo = "Mapa: Projeto X", ImagemPath = "/Assets/mapa2.png" });
-            MindMaps.Add(new MapaMental { Titulo = "Mapa: Ideias", ImagemPath = "/Assets/mapa3.png" });
+            MindMaps.Add(new MapaMental { Titulo = "Mapa: Estudos", ImagemPath = "/Assets/mapa1.png", DataCriacao = DateTime.Today });
+            MindMaps.Add(new MapaMental { Titulo = "Mapa: Projeto X", ImagemPath = "/Assets/mapa2.png", DataCriacao=DateTime.Today.AddDays(-1) });
+            MindMaps.Add(new MapaMental { Titulo = "Mapa: Ideias", ImagemPath = "/Assets/mapa3.png", DataCriacao = DateTime.Today.AddDays(-10) });
+
+            var view = CollectionViewSource.GetDefaultView(MindMaps);
+            view.GroupDescriptions.Add(new PropertyGroupDescription("GrupoCronologico"));
+            view.SortDescriptions.Add(new SortDescription("DataCriacao", ListSortDirection.Descending));
+            GroupedMindMaps = view;
+
 
             CreateMindMapCommand = new RelayCommand(_ => AddNewMindMap()); 
         }

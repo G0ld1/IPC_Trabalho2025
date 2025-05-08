@@ -8,7 +8,30 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage">
 
+    <Page.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#586D4137"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+
+
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <!-- Drawer -->
@@ -17,32 +40,102 @@
         </Grid.ColumnDefinitions>
 
         <!-- Sidebar -->
-        <StackPanel Grid.Column="0" Background="#eee" >
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                <TextBlock Text="{Binding Username}" VerticalAlignment="Center" Margin="10 0"/>
-                <Ellipse Width="40" Height="40" Fill="Gray"
-                         Cursor="Hand"
-                         MouseLeftButtonUp="Ellipse_MouseLeftButtonUp"/>
-            </StackPanel>
-            <Button Content="Criar novo mapa"
-                    Command="{Binding CreateMindMapCommand}"
-                    Margin="0 10"/>
-            <ListBox ItemsSource="{Binding MindMaps}"
-                     DisplayMemberPath="Titulo"
-                     SelectionChanged="MapSelectionChanged"/>
-        </StackPanel>
+        <Grid Grid.Column="0" Background="#432A2A">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border CornerRadius="43"
+                    Background="#6D4137"
+                    BorderThickness="1"
+                    
+                    Margin="39,36,0,0" Height="74" VerticalAlignment="Top" HorizontalAlignment="Left" Width="197">
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,9,0,9" >
+                    <Ellipse Width="40" Height="40" Fill="Gray" Margin="5 "
+                 Cursor="Hand"
+                 MouseLeftButtonUp="Ellipse_MouseLeftButtonUp"/>
+                    <TextBlock Text="{Binding Username}" Width="100"/>
+                </StackPanel>
+            </Border>
+
+            <Button 
+        Command="{Binding CreateMindMapCommand}"
+        Margin="0,10,0,10"
+        Grid.Row="1"
+        Width="142"
+        Height="50"
+        Background="#5F6D4137"
+        Style="{StaticResource RoundedButtonStyle}">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="pack://application:,,,/Assets/Images/Plus_Icon.png" Width="30" Height="30" Margin="0,0,10,0"/>
+                    <TextBlock Text="Novo" FontFamily="Outfit" Foreground="White" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <ListBox ItemsSource="{Binding GroupedMindMaps}"            
+             SelectionChanged="MapSelectionChanged"
+                     Background="#432A2A"
+                     BorderBrush="#251B1B"
+             Grid.Row="2">
+                <ListBox.GroupStyle>
+                    <GroupStyle>
+                        <!-- Cabeçalho do grupo (ex: Hoje, Ontem...) -->
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" 
+                               FontWeight="SemiBold"
+                               FontFamily="Outfit"
+                               FontSize="16" 
+                               Foreground="White"
+                               Margin="0,20,0,10"/>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+
+                        <!-- Template de item com estilo -->
+                        
+
+
+                        <!-- Painel dos itens (permite adicionar espaço entre eles) -->
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="5,0,0,10"/>
+                                <!-- Espaço entre grupos -->
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </ListBox.GroupStyle>
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Margin" Value="0,0,0,3"/>
+                        <!-- Espaço entre itens -->
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Titulo}" 
+                        Foreground="White" 
+                        FontSize="12"
+                        Margin="10,4"/>     
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
 
         <!-- Conteúdo principal -->
         <Grid Grid.Column="1">
             <StackPanel x:Name="MainContent">
-            <TextBlock Text="Bem-vindo!" FontSize="24" VerticalAlignment="Top" Margin="0,50" HorizontalAlignment="Center"/>
+                <TextBlock Text="Bem-vindo!" FontSize="24" VerticalAlignment="Top" Margin="0,50" HorizontalAlignment="Center"/>
 
-            <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="10" Padding="30"
+                <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="10" Padding="30"
                 Background="#EEE" AllowDrop="True"
                 Drop="DropArea_Drop" DragOver="DropArea_DragOver" Margin="73,185,65,52" Height="126">
-                <TextBlock x:Name="DropText" Text="Arraste aqui o seu ficheiro para começar"
+                    <TextBlock x:Name="DropText" Text="Arraste aqui o seu ficheiro para começar"
                        FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Border>
+                </Border>
             </StackPanel>
 
             <!-- Barra de progresso (oculta por defeito) -->
@@ -50,7 +143,7 @@
                 <TextBlock Text="A processar..." FontSize="16" HorizontalAlignment="Center" Margin="0 10"/>
                 <ProgressBar IsIndeterminate="True" Height="20" Width="200" HorizontalAlignment="Center"/>
             </StackPanel>
-          
+
         </Grid>
     </Grid>
 </Page>
