@@ -12,5 +12,7 @@
             <TextBlock x:Name="MapTitle" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
             <Image x:Name="MapImage" Width="500" Height="300" Stretch="Uniform"/>
         </StackPanel>
+        <Button Content="Back" Click="BackButton_Click" Width="100" Height="50"/>
+
     </Grid>
 </Page>

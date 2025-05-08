@@ -28,4 +28,7 @@
     <Resource Include="Views\Register Page.png" />
   </ItemGroup>
 
+  <ItemGroup>
+  </ItemGroup>
+
 </Project>
