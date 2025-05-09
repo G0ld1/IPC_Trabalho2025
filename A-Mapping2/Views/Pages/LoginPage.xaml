@@ -38,14 +38,14 @@
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="449" MaxWidth="600" Margin="0,20,0,0">
             <TextBlock Text="{DynamicResource UsernameLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
             <TextBox x:Name="UsernameTextBox"  Text="{Binding Username}" Height="50" FontSize="16" Margin="0,0,0,20" 
-                  Background="#936D4137" BorderThickness="0" Padding="10"/>
+                  Background="#936D4137" BorderThickness="0" Padding="10" FontFamily="Outfit" FontWeight="SemiBold"/>
 
             <TextBlock Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
             <PasswordBox x:Name="PasswordBox" Height="50" Margin="0,0,0,20" PasswordChanged="PasswordBox_PasswordChanged"
-                      Background="#586D4137" Foreground="White" BorderThickness="0" Padding="10"/>
+                      Background="#586D4137" Foreground="White" BorderThickness="0" Padding="10" FontFamily="Outfit" FontWeight="SemiBold"/>
             <TextBox Name="PasswordUnmask" Visibility="Collapsed" Height="50" Margin="0,0,0,20" 
                      Background="#586D4137" BorderThickness="0" Padding="10"
-                     VerticalContentAlignment="Center" />
+                     VerticalContentAlignment="Center" FontFamily="Outfit" FontWeight="SemiBold" />
 
             <TextBlock x:Name="ShowPassword" Text="👁" 
                        FontSize="16"
