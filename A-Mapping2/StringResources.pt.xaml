@@ -21,5 +21,7 @@
     <sys:String x:Key="ProcessingText">A processar ...</sys:String>
     <sys:String x:Key="ChangeMap">Pretende modificar o seu Mapa</sys:String>
     <sys:String x:Key="GoBackButton">Voltar</sys:String>
-
+    <sys:String x:Key="ProfileText">Perfil</sys:String>
+    <sys:String x:Key="ChangePassWord">Alterar Palavra-Passe</sys:String>
+    <sys:String x:Key="SwitchAccount">Trocar de Conta</sys:String>
 </ResourceDictionary>

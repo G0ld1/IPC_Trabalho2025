@@ -21,5 +21,7 @@
     <sys:String x:Key="ProcessingText">Processing ...</sys:String>
     <sys:String x:Key="ChangeMap">Want to modify your Map</sys:String>
     <sys:String x:Key="GoBackButton">Back</sys:String>
-
+    <sys:String x:Key="ProfileText">Profile</sys:String>
+    <sys:String x:Key="ChangePassWord">Change Password</sys:String>
+    <sys:String x:Key="SwitchAccount">Change Account</sys:String>
 </ResourceDictionary>

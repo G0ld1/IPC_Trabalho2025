@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:controls="clr-namespace:A_Mapping2.Views.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="ProfilePage">
@@ -15,7 +16,7 @@
             <!-- Conteúdo principal -->
         </Grid.RowDefinitions>      
 
-        <TextBlock Text="Perfil" FontFamily="Outfit" FontSize="52" FontWeight="Bold" Foreground="White" Margin="0,0,0,40" Grid.Row="0"/>
+        <TextBlock Text="{DynamicResource ProfileText}" FontFamily="Outfit" FontSize="52" FontWeight="Bold" Foreground="White" Margin="0,0,0,40" Grid.Row="0"/>
         
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -45,16 +46,16 @@
             <!-- Lado direito: Campos -->
             <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="40,0,0,0">
                 <!-- Username -->
-                <TextBlock Text="Nome de Utilizador" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,5"/>
+                <TextBlock Text="{DynamicResource UsernameLabel}" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,5"/>
                 <TextBlock x:Name="UsernameTextBlock"  FontSize="16" FontFamily="Outfit" Foreground="White" Margin="0,0,0,20" Background="#5E6D4137"/>
 
                 <!-- Email -->
-                <TextBlock Text="Email" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,5"/>
+                <TextBlock Text="{DynamicResource EmailLabel}" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,5"/>
                 <TextBlock x:Name="EmailTextBlock"  FontSize="16" FontFamily="Outfit" Foreground="White" Margin="0,0,0,20" Background="#5E6D4137"/>
 
                 <!-- Botão para mudar password -->
-                <TextBlock Text="Palavra-Passe" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,15"/>
-                <Button Content="Mudar Palavra-Passe"
+                <TextBlock Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,15"/>
+                <Button Content="{DynamicResource ChangePassWord}"
             Click="ChangePassword_Click"
             Height="40"
             Width="200"
@@ -86,7 +87,7 @@
 
                 </Button>
 
-                <Button Content="Mudar de Conta"
+                <Button Content="{DynamicResource SwitchAccount}"
     Click="Logout_Click"
     Height="40"
     Width="200"

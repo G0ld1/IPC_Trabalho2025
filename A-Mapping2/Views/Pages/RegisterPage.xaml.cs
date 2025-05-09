@@ -28,31 +28,13 @@ namespace A_Mapping2.Views.Pages
             _navigationFrame = navigationFrame;
             DataContext = new RegisterViewModel(navigationFrame);
         }
+
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            string username = UsernameTextBox.Text;
-            string password = PasswordBox.Password;
-            string confirmPassword = ConfirmPasswordBox.Password;
-
-            if (string.IsNullOrWhiteSpace(username) ||
-                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
+            var vm = DataContext as RegisterViewModel;
+            if (vm?.RegisterCommand.CanExecute(null) == true)
             {
-                MessageBox.Show("All fields are required.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // TODO: Add logic to handle registration (e.g., save to database, call API, etc.)
-            MessageBox.Show("Registration successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            if (this.NavigationService != null)
-            {
-                this.NavigationService.Navigate(new LoginPage(_navigationFrame));
+                vm.RegisterCommand.Execute(new[] { PasswordBox, ConfirmPasswordBox });
             }
         }
         private void NavigateToLoginPage(object sender, MouseButtonEventArgs e)

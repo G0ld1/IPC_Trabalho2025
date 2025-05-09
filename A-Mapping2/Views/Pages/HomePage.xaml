@@ -153,18 +153,18 @@
         <!-- Conteúdo principal -->
         <Grid Grid.Column="1">
             <StackPanel x:Name="MainContent">
-                <TextBlock Text="{DynamicResource WelcomeText}" FontSize="24" VerticalAlignment="Top" Margin="0,50" HorizontalAlignment="Center" Foreground="White"/>
+                <TextBlock Text="{DynamicResource WelcomeText}" FontSize="24" VerticalAlignment="Top" Margin="0,150" HorizontalAlignment="Center" Foreground="White"/>
 
                 <Button Style="{StaticResource NoMouseOverButtonStyle}" x:Name="BorderFileButton"
-        Click="ButtonFileButton_Click"
-        BorderThickness="2"
-        Padding="30"
-        Margin="73,10,65,52"
-        Height="320"
-        Width="726"
-        AllowDrop="True"
-        Drop="DropArea_Drop"
-        DragOver="DropArea_DragOver">
+                    Click="ButtonFileButton_Click"
+                    BorderThickness="2"
+                    Padding="30"
+                    Margin="73,10,65,52"
+                    Height="320"
+                    Width="726"
+                    AllowDrop="True"
+                    Drop="DropArea_Drop"
+                    DragOver="DropArea_DragOver">       
                     <Button.Background>
                         <ImageBrush ImageSource="pack://application:,,,/Assets/Images/dropBox.png" Stretch="Uniform" TileMode="Tile" />
                     </Button.Background>
