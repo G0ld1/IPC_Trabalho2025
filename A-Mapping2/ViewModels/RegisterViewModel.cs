@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Controls;
 using System.Windows;
 using A_Mapping2.Views.Pages;
+using A_Mapping2.Models;
 
 namespace A_Mapping2.ViewModels
 {
@@ -43,14 +44,25 @@ namespace A_Mapping2.ViewModels
                 string password = passwordBox.Password;
                 string confirmPassword = confirmBox.Password;
 
-                if (string.IsNullOrWhiteSpace(password) || password != confirmPassword)
+                if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Email))
+                {
+                    MessageBox.Show("Preencha todos os campos.");
+                    return;
+                }
+
+                if (password != confirmPassword)
                 {
                     MessageBox.Show("As palavras-passe não coincidem.");
                     return;
                 }
 
+                bool success = UserDataStore.Register(Username, Email, password);
+                if (!success)
+                {
+                    MessageBox.Show("Já existe um utilizador registado.");
+                    return;
+                }
 
-                // Aqui podias guardar o novo utilizador (simulado)
                 MessageBox.Show("Utilizador registado com sucesso!");
                 _navigationFrame.Navigate(new LoginPage(_navigationFrame));
             }

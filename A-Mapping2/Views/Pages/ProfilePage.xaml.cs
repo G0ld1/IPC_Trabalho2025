@@ -1,4 +1,5 @@
-﻿using System;
+﻿using A_Mapping2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using A_Mapping2.Helpers;
+using A_Mapping2.ViewModels;
+using System.IO;
 
 
 
@@ -23,30 +27,82 @@ namespace A_Mapping2.Views.Pages
     public partial class ProfilePage : Page
     {
         private readonly Frame _navigationFrame;
-        private string _username;
+        private readonly ProfileViewModel _viewModel;
 
-        public ProfilePage(Frame navigationFrame, string username)
+        public ProfilePage(Frame navigationFrame)
         {
             InitializeComponent();
             _navigationFrame = navigationFrame;
-            _username = username;
 
-            //UsernameTextBox.Text = _username;
+            _viewModel = new ProfileViewModel();
+
+            // Carrega o utilizador atual
+            UserDataStore.LoadUser();
+
+            string path = UserDataStore.CurrentUser?.ProfilePicturePath;
+
+            if (!string.IsNullOrEmpty(path) && File.Exists(path))
+            {
+                ProfileEllipse.Fill = new ImageBrush(new BitmapImage(new Uri(path)))
+                {
+                    Stretch = Stretch.UniformToFill
+                };
+            }
+            else
+            {
+                ProfileEllipse.Fill = new SolidColorBrush(Colors.Gray); // Fallback
+            }
+
+            if (UserDataStore.CurrentUser != null)
+            {
+                UsernameTextBlock.Text = UserDataStore.CurrentUser.Username;
+                EmailTextBlock.Text = UserDataStore.CurrentUser.Email;
+            }
+            else
+            {
+                MessageBox.Show("Erro ao carregar dados do utilizador.");
+            }
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void ProfileImage_Click(object sender, MouseButtonEventArgs e)
         {
-            //_username = UsernameTextBox.Text;
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Imagens (*.png;*.jpg)|*.png;*.jpg"
+            };
 
-            MessageBox.Show($"Nome atualizado para: {_username}");
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string selectedImagePath = openFileDialog.FileName;
 
-            // Aqui podias atualizar também o ViewModel principal se estivesse centralizado.
-            _navigationFrame.GoBack();
+                // Atualizar imagem no UI
+                ProfileImageBrush.ImageSource = new BitmapImage(new Uri(selectedImagePath));
+
+                // Guardar no user
+                var user = UserDataStore.CurrentUser;
+                user.ProfilePicturePath = selectedImagePath;
+
+                UserDataStore.SaveCurrentUser(); // Salva no JSON
+            }
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            _navigationFrame.GoBack();
+            UserDataStore.Logout(); // limpa CurrentUser e as settings
+
+            // Redireciona para a página de login
+            _navigationFrame.Navigate(new LoginPage(_navigationFrame));
+        }
+
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            var popup = new PasswordPopup();
+            popup.Owner = Application.Current.MainWindow;
+            if (popup.ShowDialog() == true)
+            {
+                // A PasswordPopup deve guardar a nova password no UserDataStore
+                MessageBox.Show("Palavra-passe alterada com sucesso!");
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace A_Mapping2.Models
@@ -12,7 +13,7 @@ namespace A_Mapping2.Models
         public string ImagemPath { get; set; }
         public DateTime DataCriacao { get; set; } = DateTime.Now;
 
-
+        [JsonIgnore]
         public string GrupoCronologico
         {
             get

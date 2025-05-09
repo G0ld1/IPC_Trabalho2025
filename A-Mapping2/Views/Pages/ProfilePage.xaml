@@ -3,21 +3,122 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:A_Mapping2.Views.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="ProfilePage">
 
-    <Grid Margin="60"> 
-        <TextBlock Text=" Perfil" FontFamily="Outfit" FontSize="52" FontWeight="Bold" Foreground="White" Margin="80,134,0,676" Height="87"/>
-        <Image Source="/Assets/Images/Camera.png" Width="48" Height="48" Margin="1006,258,746,654"></Image>
-    <StackPanel Margin="20,258,20,20" HorizontalAlignment="Center" >
-            <Ellipse Height="200" Width="200" Fill="#FF626262">  </Ellipse>
-            <TextBox x:Name="UsernameTextBox" Text="{Binding Username, Mode=TwoWay}" Margin="0,10"/>
-            <TextBox x:Name="EmailTextBox" Text="{Binding Email, Mode=TwoWay}"></TextBox>
-            <PasswordBox x:Name="PasswordBox" ></PasswordBox>
-            <!-- Outros controles -->
-    </StackPanel>
+    <Grid Margin="60" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Título -->
+            <RowDefinition Height="*"/>
+            <!-- Conteúdo principal -->
+        </Grid.RowDefinitions>      
+
+        <TextBlock Text="Perfil" FontFamily="Outfit" FontSize="52" FontWeight="Bold" Foreground="White" Margin="0,0,0,40" Grid.Row="0"/>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <!-- Foto -->
+                <ColumnDefinition Width="2*"/>
+                <!-- Campos -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Lado esquerdo: Foto e ícone da câmara -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0">
+                <Grid MouseLeftButtonUp="ProfileImage_Click" Cursor="Hand">
+                    <Ellipse x:Name="ProfileEllipse" Height="200" Width="200">
+                        <Ellipse.Fill>
+                            <SolidColorBrush x:Name="ProfileFallbackBrush" Color="Gray"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Image Source="/Assets/Images/Camera.png"
+           Width="48" Height="48"
+           HorizontalAlignment="Right"
+           VerticalAlignment="Bottom"
+           Margin="0,0,-48,152"/>
+                </Grid>
+            </StackPanel>
+
+            <!-- Lado direito: Campos -->
+            <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="40,0,0,0">
+                <!-- Username -->
+                <TextBlock Text="Nome de Utilizador" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,5"/>
+                <TextBlock x:Name="UsernameTextBlock"  FontSize="16" FontFamily="Outfit" Foreground="White" Margin="0,0,0,20" Background="#5E6D4137"/>
+
+                <!-- Email -->
+                <TextBlock Text="Email" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,5"/>
+                <TextBlock x:Name="EmailTextBlock"  FontSize="16" FontFamily="Outfit" Foreground="White" Margin="0,0,0,20" Background="#5E6D4137"/>
+
+                <!-- Botão para mudar password -->
+                <TextBlock Text="Palavra-Passe" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,0,0,15"/>
+                <Button Content="Mudar Palavra-Passe"
+            Click="ChangePassword_Click"
+            Height="40"
+            Width="200"
+            Background="#FF743933"
+            Foreground="White"
+            FontFamily="Outfit"
+            FontWeight="SemiBold" HorizontalAlignment="Left">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="#586D4137"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                             BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderThickness="{TemplateBinding BorderThickness}"
+                             CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+
+
+                </Button>
+
+                <Button Content="Mudar de Conta"
+    Click="Logout_Click"
+    Height="40"
+    Width="200"
+    Margin="0,20,0,0"
+    Background="#FF743933"
+    Foreground="White"
+    FontFamily="Outfit"
+    FontWeight="SemiBold" HorizontalAlignment="Left">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="#586D4137"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                     BorderBrush="{TemplateBinding BorderBrush}"
+                     BorderThickness="{TemplateBinding BorderThickness}"
+                     CornerRadius="20">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+
+
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
-    
 </Page>
