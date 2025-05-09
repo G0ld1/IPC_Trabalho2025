@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using A_Mapping2.Helpers;
 using A_Mapping2.Models;
 using A_Mapping2.ViewModels;
+using Microsoft.Win32;
 
 namespace A_Mapping2.Views.Pages
 {
@@ -95,7 +96,7 @@ namespace A_Mapping2.Views.Pages
             e.Handled = true;
         }
 
-        private void DropArea_Drop(object sender, DragEventArgs e)
+        private void DropArea_Drop(object sender, RoutedEventArgs e)
         {
             var processingWindow = new ProcessingWindow();
             processingWindow.Owner = Window.GetWindow(this); // Define como modal sobre a janela principal
@@ -113,6 +114,22 @@ namespace A_Mapping2.Views.Pages
             };
 
             processingWindow.ShowDialog(); // Modal
+        }
+
+        private void ButtonFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Open a file dialog to select a file
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Text Files (*.*)|*.*", // Adjust the filter as needed
+                Title = "Select a File"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var filePath = openFileDialog.FileName;
+                DropArea_Drop(sender,e);
+            }
         }
     }
 }

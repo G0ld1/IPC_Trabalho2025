@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:A_Mapping2.Views.Pages"
+      xmlns:controls="clr-namespace:A_Mapping2.Views.Controls"
+      KeyDown="Page_KeyDown"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="LoginPage">
@@ -17,13 +19,13 @@
 
         <!-- Cabeçalho -->
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,30,0,20">
-            <TextBlock Text="Iniciar Sessão" 
+            <TextBlock Text="{DynamicResource LoginLabel}" 
                     FontFamily="Outfit" 
                     FontWeight="SemiBold" 
                     FontSize="48" 
                     Foreground="#FFF6EEF2"
                     TextAlignment="Center"/>
-            <TextBlock Text="Faça Login para Continuar" 
+            <TextBlock Text="{DynamicResource LoginTip}" 
                     FontFamily="Outfit" 
                     FontSize="38"
                     Foreground="#FFF6EEF2"
@@ -34,15 +36,24 @@
 
         <!-- Formulário -->
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="449" MaxWidth="600" Margin="0,20,0,0">
-            <TextBlock Text="Nome de Utilizador/Email" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
-            <TextBox Text="{Binding Username}" Height="50" FontSize="16" Margin="0,0,0,20" 
-                  Background="#936D4137" BorderThickness="0" Padding="10"/>
+            <TextBlock Text="{DynamicResource UsernameLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <TextBox x:Name="UsernameTextBox"  Text="{Binding Username}" Height="50" FontSize="16" Margin="0,0,0,20" 
+                  Background="#936D4137" BorderThickness="0" Padding="10" FontFamily="Outfit" FontWeight="SemiBold"/>
 
-            <TextBlock Text="Palavra-Passe" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <TextBlock Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
             <PasswordBox x:Name="PasswordBox" Height="50" Margin="0,0,0,20" PasswordChanged="PasswordBox_PasswordChanged"
-                      Background="#586D4137" BorderThickness="0" Padding="10"/>
+                      Background="#586D4137" Foreground="White" BorderThickness="0" Padding="10" FontFamily="Outfit" FontWeight="SemiBold"/>
+            <TextBox Name="PasswordUnmask" Visibility="Collapsed" Height="50" Margin="0,0,0,20" 
+                     Background="#586D4137" BorderThickness="0" Padding="10"
+                     VerticalContentAlignment="Center" FontFamily="Outfit" FontWeight="SemiBold" />
 
-            <Button Content="Login"
+            <TextBlock x:Name="ShowPassword" Text="👁" 
+                       FontSize="16"
+                       HorizontalAlignment="Right"
+                       PreviewMouseDown="ShowPassword_PreviewMouseDown"
+                       Foreground=" white"/>
+
+            <Button Content="{DynamicResource LoginButton}"
                  Command="{Binding LoginCommand}"
                  Width="200" Height="50"
                  FontSize="20"
@@ -71,6 +82,11 @@
                     </Style>
                 </Button.Style>
             </Button>
+
+            <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" MouseDown="NavigateToRegisterPage">
+                <Run Text="{DynamicResource RegisterText}" FontFamily="Outfit" FontSize="16" TextDecorations="Underline" Foreground="#F3D996" />
+            </TextBlock>
+            <controls:LanguageSelector />
         </StackPanel>
     </Grid>
 </Page>

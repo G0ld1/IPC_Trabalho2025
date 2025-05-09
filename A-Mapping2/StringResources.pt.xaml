@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+	<sys:String x:Key="UsernameLabel">Utilizador</sys:String>
+	<sys:String x:Key="PasswordLabel">Palavra-Passe</sys:String>
+	<sys:String x:Key="PassConfirmationLabel">Confirma a Palavra-Passe</sys:String>
+	<sys:String x:Key="LoginButton">Entrar</sys:String>
+	<sys:String x:Key="RegisterButton">Efetuar Registo</sys:String>
+	<sys:String x:Key="BackToLoginText">Ja tenho conta!</sys:String>
+	<sys:String x:Key="RegisterText">Não tenho conta!!</sys:String>
+	<sys:String x:Key="RegisterLabel">Registo</sys:String>
+	<sys:String x:Key="LoginLabel">Login</sys:String>
+    <sys:String x:Key="EmailLabel">E-Mail</sys:String>
+    <sys:String x:Key="LoginTip">Faca Login para Continuar</sys:String>
+    <sys:String x:Key="Greeting">Bem Vindo/a</sys:String>
+    <sys:String x:Key="GreetingTip">Crie a sua Conta para Comecar</sys:String>
+    <sys:String x:Key="LangBut">Portugues</sys:String>
+    <sys:String x:Key="NewText">Novo Mapa</sys:String>
+    <sys:String x:Key="WelcomeText">Bem-Vindo!</sys:String>
+    <sys:String x:Key="DragFile">Arraste um arquivo PDF aqui ou clique para escolher um ficheiro do Computador</sys:String>
+    <sys:String x:Key="ProcessingText">A processar ...</sys:String>
+    <sys:String x:Key="ChangeMap">Pretende modificar o seu Mapa</sys:String>
+    <sys:String x:Key="GoBackButton">Voltar</sys:String>
+
+</ResourceDictionary>

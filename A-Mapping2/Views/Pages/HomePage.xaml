@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:A_Mapping2.Views.Pages"
+      xmlns:controls="clr-namespace:A_Mapping2.Views.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="HomePage">
@@ -21,6 +22,28 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="25">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="NoMouseOverButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"   >
+                            <ContentPresenter Margin="2"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -64,24 +87,23 @@
             </Border>
 
             <Button 
-        Command="{Binding CreateMindMapCommand}"
-        Margin="0,10,0,10"
-        Grid.Row="1"
-        Width="142"
-        Height="50"
-        Background="#5F6D4137"
-        Style="{StaticResource RoundedButtonStyle}">
-
+                Command="{Binding CreateMindMapCommand}"
+                Margin="0,10,0,10"
+                Grid.Row="1"
+                Width="142"
+                Height="50"
+                Background="#5F6D4137"
+                Style="{StaticResource RoundedButtonStyle}">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Source="pack://application:,,,/Assets/Images/Plus_Icon.png" Width="30" Height="30" Margin="0,0,10,0"/>
-                    <TextBlock Text="Novo" FontFamily="Outfit" Foreground="White" FontSize="16" VerticalAlignment="Center"/>
-                </StackPanel>
-            </Button>
-            <ListBox ItemsSource="{Binding GroupedMindMaps}"            
- SelectionChanged="MapSelectionChanged"
-         Background="#432A2A"
-         BorderBrush="#251B1B"
- Grid.Row="2">
+                            <Image Source="pack://application:,,,/Assets/Images/Plus_Icon.png" Width="30" Height="30" Margin="0,0,10,0"/>
+                            <TextBlock Text="{DynamicResource NewText}" FontFamily="Outfit" Foreground="White" FontSize="16" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                <ListBox ItemsSource="{Binding GroupedMindMaps}"            
+                         SelectionChanged="MapSelectionChanged"
+                         Background="#432A2A"
+                         BorderBrush="#251B1B"
+                         Grid.Row="2">       
                 <ListBox.GroupStyle>
                     <GroupStyle>
                         <!-- Cabeçalho do grupo (ex: Hoje, Ontem...) -->
@@ -96,8 +118,8 @@
                             </DataTemplate>
                         </GroupStyle.HeaderTemplate>
 
-                    
-
+                        <!-- Template de item com estilo -->
+                        
                         <!-- Painel dos itens (permite adicionar espaço entre eles) -->
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
@@ -124,25 +146,46 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <controls:LanguageSelector Margin="0,100,0,50"/>
 
         </Grid>
 
         <!-- Conteúdo principal -->
         <Grid Grid.Column="1">
-            <StackPanel x:Name="MainContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
-                <TextBlock Text="Faça Upload Para Começar" TextWrapping="Wrap" FontFamily="Outfit" FontWeight="SemiBold" Foreground="White" FontSize="48" Margin="0,90,0,90" HorizontalAlignment="Center" Width="402" TextAlignment="Center"/>
+            <StackPanel x:Name="MainContent">
+                <TextBlock Text="{DynamicResource WelcomeText}" FontSize="24" VerticalAlignment="Top" Margin="0,50" HorizontalAlignment="Center" Foreground="White"/>
 
-                <Border  BorderThickness="2" CornerRadius="10" Padding="30"
-                AllowDrop="True"
-                Drop="DropArea_Drop" DragOver="DropArea_DragOver" Margin="73,10, 65,52" Height="320" Width="726">
-                    <Border.Background>
+                <Button Style="{StaticResource NoMouseOverButtonStyle}" x:Name="BorderFileButton"
+        Click="ButtonFileButton_Click"
+        BorderThickness="2"
+        Padding="30"
+        Margin="73,10,65,52"
+        Height="320"
+        Width="726"
+        AllowDrop="True"
+        Drop="DropArea_Drop"
+        DragOver="DropArea_DragOver">
+                    <Button.Background>
                         <ImageBrush ImageSource="pack://application:,,,/Assets/Images/dropBox.png" Stretch="Uniform" TileMode="Tile" />
-                    </Border.Background>
-                    <TextBlock x:Name="DropText" Text="Arraste um arquivo PDF aqui ou clique para escolher um ficheiro do Computador"
-                       FontSize="16" FontFamily="Outfit" FontWeight="Medium" Foreground="#AAFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,205,0,0"/>
-                </Border>
-            </StackPanel>           
-           
+                    </Button.Background>
+                    <TextBlock x:Name="DropText"
+               Text="{DynamicResource DragFile}"
+               FontSize="16"
+               FontFamily="Outfit"
+               FontWeight="Medium"
+               Foreground="#AAFFFFFF"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0,205,0,0" />
+                </Button>
+
+            </StackPanel>
+
+            <!-- Barra de progresso (oculta por defeito) -->
+            <StackPanel x:Name="ProgressArea" Orientation="Vertical" Visibility="Collapsed" Margin="0,242,0,30">
+                <TextBlock Text="{DynamicResource ProcessingText}" FontSize="16" HorizontalAlignment="Center" Margin="0 10"/>
+                <ProgressBar IsIndeterminate="True" Height="20" Width="200" HorizontalAlignment="Center"/>
+            </StackPanel>
 
         </Grid>
     </Grid>
