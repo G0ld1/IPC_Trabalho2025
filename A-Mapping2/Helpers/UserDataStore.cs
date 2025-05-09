@@ -61,7 +61,9 @@ namespace A_Mapping2.Helpers
                 existingUser.Email = CurrentUser.Email;
                 existingUser.Password = CurrentUser.Password;
                 existingUser.MapasMentais = CurrentUser.MapasMentais;
+                existingUser.ProfilePicturePath = CurrentUser.ProfilePicturePath; 
             }
+        
 
             SaveAllUsers(users);
         }

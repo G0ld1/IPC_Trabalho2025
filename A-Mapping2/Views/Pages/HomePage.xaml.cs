@@ -48,6 +48,32 @@ namespace A_Mapping2.Views.Pages
             {
                 ProfileEllipse.Fill = new SolidColorBrush(Colors.Gray); // Fallback
             }
+
+            this.Loaded += HomePage_Loaded;
+        }
+
+        private void HomePage_Loaded(object sender, RoutedEventArgs e)
+        {
+            AtualizarImagemPerfil();
+        }
+
+
+
+        private void AtualizarImagemPerfil()
+        {
+            string path = UserDataStore.CurrentUser?.ProfilePicturePath;
+
+            if (!string.IsNullOrEmpty(path) && File.Exists(path))
+            {
+                ProfileEllipse.Fill = new ImageBrush(new BitmapImage(new Uri(path, UriKind.Absolute)))
+                {
+                    Stretch = Stretch.UniformToFill
+                };
+            }
+            else
+            {
+                ProfileEllipse.Fill = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void Ellipse_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
