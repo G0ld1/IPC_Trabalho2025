@@ -64,6 +64,18 @@ namespace A_Mapping2.Views.Pages
             }
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("No previous page in the navigation stack.");
+            }
+        }
+
         private void ProfileImage_Click(object sender, MouseButtonEventArgs e)
         {
             var openFileDialog = new Microsoft.Win32.OpenFileDialog

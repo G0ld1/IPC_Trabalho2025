@@ -54,7 +54,7 @@ public partial class App : Application
         };
 
         UserDataStore.LoadUser();
-        UserDataStore.AddFakeMindMapsToUser("Filipe");
+        //UserDataStore.AddFakeMindMapsToUser("Filipe");
         Resources.MergedDictionaries.Add(englishDictionary);
     }
 }

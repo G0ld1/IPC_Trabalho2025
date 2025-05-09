@@ -31,7 +31,7 @@ namespace A_Mapping2.Helpers
         {
             new MapaMental { Titulo = "Mapa: Desafio 3- Simplificar", ImagemPath = "/Assets/mapa1.png", DataCriacao = DateTime.Today },
             new MapaMental { Titulo = "Mapa: Algoritmia- BinaryTrees", ImagemPath = "/Assets/mapa2.png", DataCriacao = DateTime.Today.AddDays(-2) },
-            new MapaMental { Titulo = "Mapa: Ideias App", ImagemPath = "/Assets/mapa3.png", DataCriacao = DateTime.Today.AddDays(-10) }
+            
         });
 
                 SaveAllUsers(users);

@@ -37,8 +37,8 @@
     <Grid Margin="20">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Height="732" Width="1009" Margin="0,71,0,0">
             <TextBlock x:Name="MapTitle" FontFamily="Outfit" Foreground="White" FontSize="48" FontWeight="SemiBold"  TextAlignment="Left"/>
-            <Image x:Name="MapImage" Width="622" Height="330" Margin="0,20,0,90" Stretch="Uniform"/>
-            <TextBlock FontFamily="Outfit" FontWeight="Medium" FontSize="20" Foreground="White" Margin="0,20,0,10" Width="253" Text="{DynamicResource ChangeMap}"/>
+            <Image x:Name="MapImage" Width="622" Height="330" Margin="0,10,0,30" Stretch="Uniform"/>
+            <TextBlock FontFamily="Outfit" FontWeight="Medium" FontSize="20" Foreground="White" Margin="0,20,0,5" Width="253" Text="{DynamicResource ChangeMap}"/>
 
 
             <Border Background="#432A2A"
@@ -68,7 +68,7 @@
                     </Button>
                 </UniformGrid>
             </Border>
-            <!--<Button Content="{DynamicResource GoBackButton}" Click="BackButton_Click" Width="100" Height="50" Foreground="White">
+            <Button Content="{DynamicResource GoBackButton}" FontFamily="Outfit" Click="BackButton_Click" Width="100" Height="50" Foreground="White">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="Transparent"/>
@@ -88,7 +88,8 @@
                         </Setter>
                     </Style>
                 </Button.Style>
-            </Button>-->
+            </Button>
+            <controls:LanguageSelector />
         </StackPanel>
     </Grid>
 </Page>
