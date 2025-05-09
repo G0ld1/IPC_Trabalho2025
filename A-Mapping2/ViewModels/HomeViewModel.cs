@@ -39,11 +39,7 @@ namespace A_Mapping2.ViewModels
             GroupedMindMaps = view;
 
 
-            CreateMindMapCommand = new RelayCommand(_ => AddNewMindMap());
-
-            //Comandos para editar nome e eliminar
-
-          
+            CreateMindMapCommand = new RelayCommand(_ => AddNewMindMap());          
         }
 
       

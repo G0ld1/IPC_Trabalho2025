@@ -14,7 +14,7 @@ public partial class App : Application
     {
         base.OnStartup(e);
         UserDataStore.LoadUser();
-        UserDataStore.AddFakeMindMapsToUser("Filipe");
+        //UserDataStore.AddFakeMindMapsToUser("Filipe");
     }
 }
 
