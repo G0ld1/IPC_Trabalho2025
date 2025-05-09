@@ -81,14 +81,14 @@ namespace A_Mapping2.Views.Pages
         {
             ShowPassword.Text = "👁";
             PasswordUnmask.Visibility = Visibility.Visible;
-            PasswordBox.Visibility = Visibility.Hidden;
+            PasswordBox.Visibility = Visibility.Collapsed;
             PasswordUnmask.Text = PasswordBox.Password;
         }
 
         private void HidePasswordFunction()
         {
             ShowPassword.Text = "👁";
-            PasswordUnmask.Visibility = Visibility.Hidden;
+            PasswordUnmask.Visibility = Visibility.Collapsed;
             PasswordBox.Visibility = Visibility.Visible;
         }
     }

@@ -43,7 +43,7 @@
             <TextBlock Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
             <PasswordBox x:Name="PasswordBox" Height="50" Margin="0,0,0,20" PasswordChanged="PasswordBox_PasswordChanged"
                       Background="#586D4137" BorderThickness="0" Padding="10"/>
-            <TextBox Name="PasswordUnmask" Visibility="Hidden" Margin="0,10" Height="40" 
+            <TextBox Name="PasswordUnmask" Visibility="Collapsed" Margin="0,10" Height="40" 
                         FontSize="16" 
                         VerticalContentAlignment="Center" />
 

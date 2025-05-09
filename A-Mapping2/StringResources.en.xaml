@@ -17,8 +17,9 @@
     <sys:String x:Key="LangBut">English</sys:String>
     <sys:String x:Key="NewText">New Map</sys:String>
     <sys:String x:Key="WelcomeText">Welcome!</sys:String>
-    <sys:String x:Key="DragFile">Drag your file here</sys:String>
+    <sys:String x:Key="DragFile">Drag a PDF file here or click here to choose a file</sys:String>
     <sys:String x:Key="ProcessingText">Processing ...</sys:String>
-
+    <sys:String x:Key="ChangeMap">Want to modify your Map</sys:String>
+    <sys:String x:Key="GoBackButton">Back</sys:String>
 
 </ResourceDictionary>
