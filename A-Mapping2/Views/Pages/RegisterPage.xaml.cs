@@ -62,5 +62,31 @@ namespace A_Mapping2.Views.Pages
                 this.NavigationService.Navigate(new LoginPage(_navigationFrame));
             }
         }
+        private void ShowPassword_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (PasswordUnmask.Visibility == Visibility.Visible)
+            {
+                HidePasswordFunction();
+            }
+            else
+            {
+                ShowPasswordFunction();
+            }
+        }
+
+        private void ShowPasswordFunction()
+        {
+            ShowPassword.Text = "👁";
+            PasswordUnmask.Visibility = Visibility.Visible;
+            PasswordBox.Visibility = Visibility.Collapsed;
+            PasswordUnmask.Text = PasswordBox.Password;
+        }
+
+        private void HidePasswordFunction()
+        {
+            ShowPassword.Text = "👁";
+            PasswordUnmask.Visibility = Visibility.Collapsed;
+            PasswordBox.Visibility = Visibility.Visible;
+        }
     }
 }

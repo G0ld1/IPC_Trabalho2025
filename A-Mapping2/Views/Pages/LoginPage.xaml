@@ -42,16 +42,16 @@
 
             <TextBlock Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
             <PasswordBox x:Name="PasswordBox" Height="50" Margin="0,0,0,20" PasswordChanged="PasswordBox_PasswordChanged"
-                      Background="#586D4137" BorderThickness="0" Padding="10"/>
-            <TextBox Name="PasswordUnmask" Visibility="Collapsed" Margin="0,10" Height="40" 
-                        FontSize="16" 
-                        VerticalContentAlignment="Center" />
+                      Background="#586D4137" Foreground="White" BorderThickness="0" Padding="10"/>
+            <TextBox Name="PasswordUnmask" Visibility="Collapsed" Height="50" Margin="0,0,0,20" 
+                     Background="#586D4137" BorderThickness="0" Padding="10"
+                     VerticalContentAlignment="Center" />
 
             <TextBlock x:Name="ShowPassword" Text="👁" 
                        FontSize="16"
                        HorizontalAlignment="Right"
                        PreviewMouseDown="ShowPassword_PreviewMouseDown"
-                       />
+                       Foreground=" white"/>
 
             <Button Content="{DynamicResource LoginButton}"
                  Command="{Binding LoginCommand}"
