@@ -20,7 +20,8 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        MainFrame.Navigate(new RegisterPage(MainFrame));
+        //MainFrame.Navigate(new RegisterPage(MainFrame));
+        MainFrame.Navigate(new HomePage(MainFrame, "admin"));
         MainFrame.Navigated += MainFrame_Navigated;
     }
 

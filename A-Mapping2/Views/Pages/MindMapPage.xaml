@@ -5,12 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:A_Mapping2.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="MindMapPage">
     <Grid Margin="20">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <TextBlock x:Name="MapTitle" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
-            <Image x:Name="MapImage" Width="500" Height="300" Stretch="Uniform"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Height="732" Width="1009" Margin="0,71,0,0">
+            <TextBlock x:Name="MapTitle" FontFamily="Outfit" Foreground="White" FontSize="48" FontWeight="SemiBold"  TextAlignment="Left"/>
+            <Image x:Name="MapImage" Width="622" Height="330" Margin="0,20,0,90" Stretch="Uniform"/>
+            <TextBlock FontFamily="Outfit" FontWeight="Medium" FontSize="20" Foreground="White" Margin="0,20,0,10" Width="253">
+        Quer Modificar o seu Mapa?
+            </TextBlock>
+
+            <Border Background="#432A2A"
+            CornerRadius="20"
+            Padding="10"
+            HorizontalAlignment="Center">
+                <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="62" Width="245">
+                    <Button Margin="5" Padding="10" FontSize="14" BorderBrush="#00707070">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Assets/Images/MapOption2.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button  Margin="5" Padding="10" FontSize="14" BorderBrush="#00707070">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Assets/Images/MapOption1.png" />
+                        </Button.Background>
+                    </Button>
+                    <Button  Margin="5" Padding="10" FontSize="14" BorderBrush="#00707070">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Assets/Images/ColorOption1.png" />
+                        </Button.Background>
+                    </Button>
+                    <Button  Margin="5" Padding="10" FontSize="14" BorderBrush="#00707070">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Assets/Images/ColorOption2.png" />
+                        </Button.Background>
+                    </Button>
+                </UniformGrid>
+            </Border>
         </StackPanel>
         <Button Content="Back" Click="BackButton_Click" Width="100" Height="50" Foreground="White">
             <Button.Style>

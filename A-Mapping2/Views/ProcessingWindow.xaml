@@ -4,13 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:A_Mapping2.Views"
+       
+        d:DesignHeight="1080" d:DesignWidth="1920" 
         mc:Ignorable="d"
-        Title="ProcessingWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize" WindowStyle="None" ShowInTaskbar="False" Topmost="True">
-    <Grid Background="White">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="A processar o seu ficheiro..." FontSize="18" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <ProgressBar x:Name="ProgressBar" Width="250" Height="20" Minimum="0" Maximum="100" Value="0"/>
+        Title="ProcessingWindow" WindowState="Maximized"  WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize" ShowInTaskbar="False" Topmost="True">
+
+    <Window.Resources>
+        <local:ProgressBarWidthConverter x:Key="ProgressBarWidthConverter"/>
+    </Window.Resources>
+    <Grid Background="#FF1C0D16">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,379,0,0">
+
+            <!-- Custom ProgressBar -->
+            <ProgressBar x:Name="ProgressBar" Width="1293" Height="70" Minimum="0" Maximum="100" Value="0" HorizontalAlignment="Center">
+                <ProgressBar.Template>
+                    <ControlTemplate TargetType="ProgressBar">
+                        <Grid>
+                            <!-- Barra de fundo da ProgressBar -->
+                            <Border Background="#BBAB8259" CornerRadius="70" Height="70" HorizontalAlignment="Stretch"/>
+
+                            <!-- Barra de progresso personalizada -->
+                            <Rectangle Name="PART_Track" Fill="Gray" RadiusX="30" RadiusY="30" />
+                            <Rectangle Name="PART_Indicator" Fill="#D6AB3E" RadiusX="30" RadiusY="30">
+                                <Rectangle.Width>
+                                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" ConverterParameter="100" Converter="{StaticResource ProgressBarWidthConverter}" />
+                                </Rectangle.Width>
+                            </Rectangle>
+
+                            <!-- TextBlock para mostrar o valor da porcentagem -->
+                            <Border Margin="576,-101,576,81" Background="#FFF9D478" Width="NaN" Height="90">
+                                <TextBlock Text="{Binding Value, ElementName=ProgressBar, StringFormat={}{0:0}%}" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                   FontSize="30" Foreground="Black" FontWeight="Bold"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </ProgressBar.Template>
+            </ProgressBar>
+
+            <!-- Texto explicativo -->
+            <TextBlock Text="Estamos a Processar o seu Mapa Mental" FontSize="36" FontFamily="Outfit" FontWeight="Medium" Foreground="White" Margin="0,150,0,100" HorizontalAlignment="Center"/>
         </StackPanel>
+
     </Grid>
 </Window>

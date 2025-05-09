@@ -20,12 +20,13 @@ namespace A_Mapping2.ViewModels
         public ICollectionView GroupedMindMaps { get; }
 
         public ICommand CreateMindMapCommand { get; }
+    
 
         public HomeViewModel(string username)
         {
             Username = username;
             MindMaps.Add(new MapaMental { Titulo = "Mapa: Estudos", ImagemPath = "/Assets/mapa1.png", DataCriacao = DateTime.Today });
-            MindMaps.Add(new MapaMental { Titulo = "Mapa: Projeto X", ImagemPath = "/Assets/mapa2.png", DataCriacao=DateTime.Today.AddDays(-1) });
+            MindMaps.Add(new MapaMental { Titulo = "Mapa: Projeto X", ImagemPath = "/Assets/mapa2.png", DataCriacao = DateTime.Today.AddDays(-1) });
             MindMaps.Add(new MapaMental { Titulo = "Mapa: Ideias", ImagemPath = "/Assets/mapa3.png", DataCriacao = DateTime.Today.AddDays(-10) });
 
             var view = CollectionViewSource.GetDefaultView(MindMaps);
@@ -33,8 +34,15 @@ namespace A_Mapping2.ViewModels
             view.SortDescriptions.Add(new SortDescription("DataCriacao", ListSortDirection.Descending));
             GroupedMindMaps = view;
 
-            CreateMindMapCommand = new RelayCommand(_ => AddNewMindMap()); 
+
+            CreateMindMapCommand = new RelayCommand(_ => AddNewMindMap());
+
+            //Comandos para editar nome e eliminar
+
+          
         }
+
+      
 
         public void AddNewMindMap(MapaMental novoMapa = null)
         {
