@@ -76,7 +76,7 @@ namespace A_Mapping2.Views.Pages
                 string selectedImagePath = openFileDialog.FileName;
 
                 // Atualizar imagem no UI
-                ProfileImageBrush.ImageSource = new BitmapImage(new Uri(selectedImagePath));
+                ProfileEllipse.Fill = new ImageBrush(new BitmapImage(new Uri(selectedImagePath))) { Stretch = Stretch.UniformToFill };
 
                 // Guardar no user
                 var user = UserDataStore.CurrentUser;
