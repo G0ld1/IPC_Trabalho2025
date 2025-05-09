@@ -33,7 +33,6 @@ namespace A_Mapping2.ViewModels
             view.SortDescriptions.Add(new SortDescription("DataCriacao", ListSortDirection.Descending));
             GroupedMindMaps = view;
 
-
             CreateMindMapCommand = new RelayCommand(_ => AddNewMindMap()); 
         }
 

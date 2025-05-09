@@ -15,5 +15,12 @@
     <sys:String x:Key="Greeting">Bem Vindo/a</sys:String>
     <sys:String x:Key="GreetingTip">Crie a sua Conta para Comecar</sys:String>
     <sys:String x:Key="LangBut">Portugues</sys:String>
-   
+    <sys:String x:Key="NewText">Novo Mapa</sys:String>
+    <sys:String x:Key="WelcomeText">Bem-Vindo!</sys:String>
+    <sys:String x:Key="DragFile">Arraste para aqui o seu ficheiro</sys:String>
+    <sys:String x:Key="ProcessingText">A processar ...</sys:String>
+
+
+
+
 </ResourceDictionary>
