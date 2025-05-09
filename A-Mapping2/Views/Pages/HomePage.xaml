@@ -92,9 +92,7 @@
                             </DataTemplate>
                         </GroupStyle.HeaderTemplate>
 
-                        <!-- Template de item com estilo -->
-
-
+                    
 
                         <!-- Painel dos itens (permite adicionar espaço entre eles) -->
                         <GroupStyle.Panel>

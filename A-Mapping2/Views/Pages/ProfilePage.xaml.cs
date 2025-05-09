@@ -31,12 +31,12 @@ namespace A_Mapping2.Views.Pages
             _navigationFrame = navigationFrame;
             _username = username;
 
-            UsernameTextBox.Text = _username;
+            //UsernameTextBox.Text = _username;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _username = UsernameTextBox.Text;
+            //_username = UsernameTextBox.Text;
 
             MessageBox.Show($"Nome atualizado para: {_username}");
 

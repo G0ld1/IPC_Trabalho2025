@@ -15,6 +15,7 @@
     <None Remove="Assets\Fonts\Outfit-ExtraLight.ttf" />
     <None Remove="Assets\Fonts\Outfit-Light.ttf" />
     <None Remove="Assets\Fonts\Outfit-Thin.ttf" />
+    <None Remove="Assets\Images\Camera.png" />
     <None Remove="Assets\Images\ColorOption1.png" />
     <None Remove="Assets\Images\ColorOption2.png" />
     <None Remove="Assets\Images\dropBox.png" />
@@ -33,6 +34,7 @@
     <Resource Include="Assets\Fonts\Outfit-ExtraLight.ttf" />
     <Resource Include="Assets\Fonts\Outfit-Light.ttf" />
     <Resource Include="Assets\Fonts\Outfit-Thin.ttf" />
+    <Resource Include="Assets\Images\Camera.png" />
     <Resource Include="Assets\Images\ColorOption1.png" />
     <Resource Include="Assets\Images\ColorOption2.png" />
     <Resource Include="Assets\Images\dropBox.png" />
