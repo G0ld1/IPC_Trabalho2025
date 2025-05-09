@@ -12,7 +12,11 @@ namespace A_Mapping2.Helpers
 {
     class UserDataStore
     {
-        private static readonly string FilePath = "userdata.json";
+        private static readonly string FilePath = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+    "A_Mapping2",
+    "userdata.json");
+
         public static User CurrentUser { get; private set; }
 
 
@@ -25,8 +29,8 @@ namespace A_Mapping2.Helpers
             {
                 user.MapasMentais.AddRange(new List<MapaMental>
         {
-            new MapaMental { Titulo = "Mapa: Estudo de Matemática", ImagemPath = "/Assets/mapa1.png", DataCriacao = DateTime.Today },
-            new MapaMental { Titulo = "Mapa: Planejamento 2025", ImagemPath = "/Assets/mapa2.png", DataCriacao = DateTime.Today.AddDays(-2) },
+            new MapaMental { Titulo = "Mapa: Desafio 3- Simplificar", ImagemPath = "/Assets/mapa1.png", DataCriacao = DateTime.Today },
+            new MapaMental { Titulo = "Mapa: Algoritmia- BinaryTrees", ImagemPath = "/Assets/mapa2.png", DataCriacao = DateTime.Today.AddDays(-2) },
             new MapaMental { Titulo = "Mapa: Ideias App", ImagemPath = "/Assets/mapa3.png", DataCriacao = DateTime.Today.AddDays(-10) }
         });
 
@@ -36,6 +40,7 @@ namespace A_Mapping2.Helpers
 
         private static List<User> LoadAllUsers()
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(FilePath));
             if (!File.Exists(FilePath))
                 return new List<User>();
 
@@ -45,6 +50,7 @@ namespace A_Mapping2.Helpers
 
         private static void SaveAllUsers(List<User> users)
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(FilePath));
             var json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(FilePath, json);
         }
