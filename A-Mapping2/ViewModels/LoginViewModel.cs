@@ -10,6 +10,7 @@ using A_Mapping2.Helpers;
 using A_Mapping2.Views.Pages;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using A_Mapping2.Models;
 
 namespace A_Mapping2.ViewModels
 {
@@ -53,9 +54,15 @@ namespace A_Mapping2.ViewModels
 
         private void DoLogin(string _)
         {
-            if (Username == "admin" && Password == "123")
+            if (UserDataStore.Login(Username, Password))
             {
+                // Guarda estado de login
+                Properties.Settings.Default.IsLoggedIn = true;
+                Properties.Settings.Default.LoggedUsername = Username;
+                Properties.Settings.Default.Save();
+
                 _navigationFrame.Navigate(new HomePage(_navigationFrame, Username));
+            
             }
             else
             {

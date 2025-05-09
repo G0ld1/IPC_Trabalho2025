@@ -25,9 +25,13 @@ namespace A_Mapping2.ViewModels
         public HomeViewModel(string username)
         {
             Username = username;
-            MindMaps.Add(new MapaMental { Titulo = "Mapa: Estudos", ImagemPath = "/Assets/mapa1.png", DataCriacao = DateTime.Today });
-            MindMaps.Add(new MapaMental { Titulo = "Mapa: Projeto X", ImagemPath = "/Assets/mapa2.png", DataCriacao = DateTime.Today.AddDays(-1) });
-            MindMaps.Add(new MapaMental { Titulo = "Mapa: Ideias", ImagemPath = "/Assets/mapa3.png", DataCriacao = DateTime.Today.AddDays(-10) });
+
+            var user = UserDataStore.CurrentUser;
+            if (user != null)
+            {
+                foreach (var mapa in user.MapasMentais)
+                    MindMaps.Add(mapa);
+            }
 
             var view = CollectionViewSource.GetDefaultView(MindMaps);
             view.GroupDescriptions.Add(new PropertyGroupDescription("GrupoCronologico"));
@@ -46,18 +50,15 @@ namespace A_Mapping2.ViewModels
 
         public void AddNewMindMap(MapaMental novoMapa = null)
         {
-            if (novoMapa != null)
-            {
-                MindMaps.Add(novoMapa);
-                return;
-            }
-
-            var newMapa = new MapaMental
+            var mapa = novoMapa ?? new MapaMental
             {
                 Titulo = $"Mapa {MindMaps.Count + 1}",
                 ImagemPath = "/Assets/mapa_default.png"
             };
-            MindMaps.Add(newMapa);
+
+            MindMaps.Add(mapa);
+            UserDataStore.CurrentUser?.MapasMentais.Add(mapa);
+            UserDataStore.SaveCurrentUser(); // método novo que vais criar
         }
     }
 }

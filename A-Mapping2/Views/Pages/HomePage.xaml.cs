@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using A_Mapping2.Helpers;
 using A_Mapping2.Models;
 using A_Mapping2.ViewModels;
 using Microsoft.Win32;
@@ -34,11 +36,24 @@ namespace A_Mapping2.Views.Pages
             _navigationFrame = navigationFrame;
             _viewModel = new HomeViewModel(username);
             DataContext = _viewModel;
+            string path = UserDataStore.CurrentUser?.ProfilePicturePath;
+
+            if (!string.IsNullOrEmpty(path) && File.Exists(path))
+            {
+                ProfileEllipse.Fill = new ImageBrush(new BitmapImage(new Uri(path)))
+                {
+                    Stretch = Stretch.UniformToFill
+                };
+            }
+            else
+            {
+                ProfileEllipse.Fill = new SolidColorBrush(Colors.Gray); // Fallback
+            }
         }
 
         private void Ellipse_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _navigationFrame.Navigate(new ProfilePage(_navigationFrame, _username));
+            _navigationFrame.Navigate(new ProfilePage(_navigationFrame));
         }
 
         private void MapSelectionChanged(object sender, SelectionChangedEventArgs e)

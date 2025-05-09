@@ -20,8 +20,16 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        //MainFrame.Navigate(new RegisterPage(MainFrame));
-        MainFrame.Navigate(new HomePage(MainFrame, "admin"));
+        if (Properties.Settings.Default.IsLoggedIn &&
+        !string.IsNullOrEmpty(Properties.Settings.Default.LoggedUsername))
+        {
+            MainFrame.Navigate(new HomePage(MainFrame, Properties.Settings.Default.LoggedUsername));
+        }
+        else
+        {
+            MainFrame.Navigate(new RegisterPage(MainFrame));
+        }
+
         MainFrame.Navigated += MainFrame_Navigated;
     }
 

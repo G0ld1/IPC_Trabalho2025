@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using A_Mapping2.Helpers;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -52,6 +53,8 @@ public partial class App : Application
             Source = new Uri("StringResources.en.xaml", UriKind.Relative)
         };
 
+        UserDataStore.LoadUser();
+        UserDataStore.AddFakeMindMapsToUser("Filipe");
         Resources.MergedDictionaries.Add(englishDictionary);
     }
 }

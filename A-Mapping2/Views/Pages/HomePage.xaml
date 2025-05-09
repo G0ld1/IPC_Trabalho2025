@@ -75,9 +75,13 @@
                     
                     Margin="39,36,0,0" Height="74" VerticalAlignment="Top" HorizontalAlignment="Left" Width="197">
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,9,0,9" >
-                    <Ellipse Width="40" Height="40" Fill="Gray" Margin="5 "
-                 Cursor="Hand"
-                 MouseLeftButtonUp="Ellipse_MouseLeftButtonUp"/>
+                    <Ellipse x:Name="ProfileEllipse" Width="40" Height="40" Margin="5"
+         Cursor="Hand"
+         MouseLeftButtonUp="Ellipse_MouseLeftButtonUp">
+                        <Ellipse.Fill>
+                            <SolidColorBrush x:Name="ProfileFallbackBrush" Color="Gray"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
                     <TextBlock Text="{Binding Username}" Margin="5" Width="94"  FontFamily="Outfit" FontSize="14" Foreground="White"  VerticalAlignment="Center"/>
                 </StackPanel>
             </Border>
