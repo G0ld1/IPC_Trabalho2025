@@ -35,16 +35,16 @@
 
         <!-- Formulário -->
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="449" MaxWidth="600" Margin="0,20,0,0">
-            <TextBlock Text="{DynamicResource UsernameLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
-            <TextBox x:Name="UsernameTextBox" Text="{Binding Username}" Height="50" FontSize="16" Margin="0,0,0,20" 
+            <TextBlock Name="UserNameLabel" Text="{DynamicResource UsernameLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <TextBox x:Name="UsernameTextBox" AutomationProperties.LabeledBy="{Binding ElementName=UserNameLabel}" Text="{Binding Username}" Height="50" FontSize="16" Margin="0,0,0,20" 
                      Background="#936D4137" BorderThickness="0" Padding="10"/>
 
-            <TextBlock Text="{DynamicResource EmailLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
-            <TextBox Text="{Binding Email}" Height="50" FontSize="16" Margin="0,0,0,20" 
+            <TextBlock Name="EmailLabel" Text="{DynamicResource EmailLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <TextBox AutomationProperties.LabeledBy="{Binding ElementName=EmailLabel}" Text="{Binding Email}" Height="50" FontSize="16" Margin="0,0,0,20" 
                      Background="#FF6D4137" BorderThickness="0" Padding="10"/>
 
-            <TextBlock Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
-            <PasswordBox x:Name="PasswordBox" Height="50" Margin="0,0,0,20" 
+            <TextBlock Name="PasswordLabel" Text="{DynamicResource PasswordLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="PasswordBox" AutomationProperties.LabeledBy="{Binding ElementName=PasswordLabel}" Height="50" Margin="0,0,0,20" 
                          Background="#586D4137" Foreground="White" BorderThickness="0" Padding="10"/>
             <TextBox Name="PasswordUnmask" Visibility="Collapsed" Height="50" Margin="0,0,0,20" 
                 Background="#586D4137" BorderThickness="0" Padding="10"
@@ -56,8 +56,8 @@
            PreviewMouseDown="ShowPassword_PreviewMouseDown"
            Foreground=" white"/>
 
-            <TextBlock Text="{DynamicResource PassConfirmationLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
-            <PasswordBox x:Name="ConfirmPasswordBox" Height="50" Margin="0,0,0,30"
+            <TextBlock Name="ConfirmPasswordLabel" Text="{DynamicResource PassConfirmationLabel}" FontFamily="Outfit" FontSize="18" Foreground="White" Margin="0,0,0,5"/>
+            <PasswordBox AutomationProperties.LabeledBy="{Binding ElementName=ConfirmPasswordLabel}" x:Name="ConfirmPasswordBox" Height="50" Margin="0,0,0,30"
                          Background="#586D4137" BorderThickness="0" Padding="10"/>
 
             <Button Content="{DynamicResource RegisterButton}"
