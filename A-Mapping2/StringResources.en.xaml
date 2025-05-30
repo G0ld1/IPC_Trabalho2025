@@ -24,4 +24,11 @@
     <sys:String x:Key="ProfileText">Profile</sys:String>
     <sys:String x:Key="ChangePassWord">Change Password</sys:String>
     <sys:String x:Key="SwitchAccount">Change Account</sys:String>
+    <sys:String x:Key="Q1">Q: How do I use the application?</sys:String>
+    <sys:String x:Key="Q2">Q: How can I view my Mind Maps?</sys:String>
+    <sys:String x:Key="Q3">Q: Where can I view/edit my profile?</sys:String>
+    <sys:String x:Key="R1">A: To start using our app, drag a file into the box on the main menu, or click on it to begin generating your mind map.</sys:String>
+    <sys:String x:Key="R2">A: Once created, mind maps will appear in the sidebar of the main menu. To view them, simply click on each one.
+        Inside each map window, you can edit it using various options</sys:String>
+    <sys:String x:Key="R3">A: By clicking on your picture or profile name, you can access your profile, where you can update your information and profile picture</sys:String>
 </ResourceDictionary>

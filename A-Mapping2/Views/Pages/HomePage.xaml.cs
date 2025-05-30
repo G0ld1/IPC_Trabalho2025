@@ -58,7 +58,10 @@ namespace A_Mapping2.Views.Pages
             AtualizarImagemPerfil();
         }
 
-
+        private void FAQButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new FAQPage());
+        }
 
         private void AtualizarImagemPerfil()
         {

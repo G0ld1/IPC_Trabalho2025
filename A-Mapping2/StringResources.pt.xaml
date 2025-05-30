@@ -24,4 +24,10 @@
     <sys:String x:Key="ProfileText">Perfil</sys:String>
     <sys:String x:Key="ChangePassWord">Alterar Palavra-Passe</sys:String>
     <sys:String x:Key="SwitchAccount">Trocar de Conta</sys:String>
+    <sys:String x:Key="Q1">Q: Como devo Utilizar a aplicacao?</sys:String>
+    <sys:String x:Key="Q2">Q: Como vejo os meus Mapas Mentais?</sys:String>
+    <sys:String x:Key="Q3">Q: Onde Vejo/modifico o meu perfil?</sys:String>
+    <sys:String x:Key="R1">R: Para começar a usar a nossa App, arraste um ficheiro para a caixa no menu principal, ou clique na mesma para começar a gerar o seu mapa mental</sys:String>
+    <sys:String x:Key="R2">R: Os mapas mentais ficam disponibilizados na barra lateral, depois pode vizualizar os mapas, selecionando um mapa.Dentro da janela de cada mapa pode editar o mesmo</sys:String>
+    <sys:String x:Key="R3">R: Ao clicar na sua imagem ou no nome do seu perfil consegue aceder ao seu perfil, de onde pode mudar as suas informacoes e imagem de perfil</sys:String>
 </ResourceDictionary>

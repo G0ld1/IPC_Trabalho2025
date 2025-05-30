@@ -48,7 +48,9 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+
         </Style>
+
     </Page.Resources>
 
 
@@ -92,7 +94,7 @@
                          SelectionChanged="MapSelectionChanged"
                          Background="#432A2A"
                          BorderBrush="#251B1B"
-                         Grid.Row="2">       
+                         Grid.Row="2">
                 <ListBox.GroupStyle>
                     <GroupStyle>
                         <!-- Cabeçalho do grupo (ex: Hoje, Ontem...) -->
@@ -108,7 +110,7 @@
                         </GroupStyle.HeaderTemplate>
 
                         <!-- Template de item com estilo -->
-                        
+
                         <!-- Painel dos itens (permite adicionar espaço entre eles) -->
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
@@ -137,6 +139,39 @@
             </ListBox>
             <controls:LanguageSelector Margin="0,100,0,50"/>
 
+
+
+            <Button Content="FAQ"
+                Height="40"
+                Width="100"
+                Background="#FF743933"
+                Foreground="White"
+                FontFamily="Outfit"
+                FontWeight="SemiBold" HorizontalAlignment="Center"
+                Click="FAQButton_Click"
+                    Margin="0,195,0,0"
+                >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="#586D4137"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                             BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderThickness="{TemplateBinding BorderThickness}"
+                             CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
         </Grid>
 
         <!-- Conteúdo principal -->
@@ -153,7 +188,7 @@
                     Width="726"
                     AllowDrop="True"
                     Drop="DropArea_Drop"
-                    DragOver="DropArea_DragOver">       
+                    DragOver="DropArea_DragOver">
                     <Button.Background>
                         <ImageBrush ImageSource="pack://application:,,,/Assets/Images/dropBox.png" Stretch="Uniform" TileMode="Tile" />
                     </Button.Background>
